@@ -136,9 +136,7 @@ const header = document.querySelector('.header');
 const stack = document.querySelector('[data-stack]');
 const hero = document.querySelector('.hero');
 const pains = [...document.querySelectorAll('[data-pains] li')];
-const sticky = document.querySelector('.sticky-cta');
 const heroCta = document.querySelector('.hero__cta');
-const finalBox = document.querySelector('.case');
 const day = document.querySelector('[data-day]');
 const dayTrack = day && day.querySelector('.day__track');
 const rules = day ? [...day.querySelectorAll('.rule')] : [];
@@ -198,9 +196,6 @@ function onScroll() {
     }
   }
 
-  // Мобільна кнопка з’являється, коли кнопка першого екрана пішла з поля зору.
-  // і ховається біля фінальної форми, щоб не перекривати її.
-  sticky.classList.toggle('is-on', heroCta.getBoundingClientRect().bottom < 0 && finalBox.getBoundingClientRect().top > vh);
 }
 
 let ticking = false;

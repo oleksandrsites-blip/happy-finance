@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css?v=9">
 </head>
 <body>
 
@@ -327,62 +327,52 @@
     </div>
   </section>
 
-  <!-- Цінності: внутрішній регламент -->
-  <section class="rules" id="values">
-    <div class="container">
-      <div class="reg-wrap">
-      <article class="reg">
-        <svg class="clip clip--reg" viewBox="0 0 46 120" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="2" y="2" width="16" height="100" rx="8"/>
-          <rect x="28" y="2" width="16" height="100" rx="8"/>
-          <path d="M18 76C18 40 28 38 28 60"/>
-        </svg>
-        <header class="reg__head">
-          <p>Внутрішній регламент</p>
-          <svg class="reg__logo"><use href="#mark"/></svg>
-        </header>
-        <h2 class="reg__title">Правила, за якими ми працюємо</h2>
-
-        <ol class="reg__list">
-          <li class="reg__item reg__item--main">
-            <span class="reg__sec">§ 1</span>
-            <div>
-              <h3>Робочий день закінчується о&nbsp;17:00</h3>
-              <p>Добре працює той, хто добре відпочиває. О 17:00 наша команда закриває ноутбуки і йде до своїх сімей, а вихідні — теж вихідні. Тому все робиться якісно й вчасно — у робочий час.</p>
-              <p class="reg__now" data-now hidden></p>
+  <!-- Цінності: один робочий день -->
+  <section class="day" id="values" data-day>
+    <div class="day__track">
+      <div class="day__sticky">
+        <div class="container day__inner">
+          <div class="day__left">
+            <h2 class="h2">Правила, за якими ми працюємо</h2>
+            <p class="day__lead">Один робочий день Happy Finance — і чотири правила, за якими він минає.</p>
+            <div class="clock" aria-hidden="true">
+              <svg viewBox="0 0 400 400">
+                <circle class="clock__face" cx="200" cy="200" r="190"/>
+                <path class="clock__arc" d="M30 200A170 170 0 1 1 285 347.2"/>
+                <path class="clock__arc clock__arc--fill" pathLength="1" d="M30 200A170 170 0 1 1 285 347.2"/>
+                <g class="clock__ticks"><line x1="200" y1="22" x2="200" y2="40" transform="rotate(0 200 200)" class="t-h"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(6 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(12 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(18 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(24 200 200)" class="t-m"/><line x1="200" y1="22" x2="200" y2="40" transform="rotate(30 200 200)" class="t-h"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(36 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(42 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(48 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(54 200 200)" class="t-m"/><line x1="200" y1="22" x2="200" y2="40" transform="rotate(60 200 200)" class="t-h"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(66 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(72 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(78 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(84 200 200)" class="t-m"/><line x1="200" y1="22" x2="200" y2="40" transform="rotate(90 200 200)" class="t-h"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(96 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(102 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(108 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(114 200 200)" class="t-m"/><line x1="200" y1="22" x2="200" y2="40" transform="rotate(120 200 200)" class="t-h"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(126 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(132 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(138 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(144 200 200)" class="t-m"/><line x1="200" y1="22" x2="200" y2="40" transform="rotate(150 200 200)" class="t-h"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(156 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(162 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(168 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(174 200 200)" class="t-m"/><line x1="200" y1="22" x2="200" y2="40" transform="rotate(180 200 200)" class="t-h"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(186 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(192 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(198 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(204 200 200)" class="t-m"/><line x1="200" y1="22" x2="200" y2="40" transform="rotate(210 200 200)" class="t-h"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(216 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(222 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(228 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(234 200 200)" class="t-m"/><line x1="200" y1="22" x2="200" y2="40" transform="rotate(240 200 200)" class="t-h"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(246 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(252 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(258 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(264 200 200)" class="t-m"/><line x1="200" y1="22" x2="200" y2="40" transform="rotate(270 200 200)" class="t-h"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(276 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(282 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(288 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(294 200 200)" class="t-m"/><line x1="200" y1="22" x2="200" y2="40" transform="rotate(300 200 200)" class="t-h"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(306 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(312 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(318 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(324 200 200)" class="t-m"/><line x1="200" y1="22" x2="200" y2="40" transform="rotate(330 200 200)" class="t-h"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(336 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(342 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(348 200 200)" class="t-m"/><line x1="200" y1="26" x2="200" y2="32" transform="rotate(354 200 200)" class="t-m"/></g>
+                <line class="clock__hour" x1="200" y1="214" x2="200" y2="112"/>
+                <line class="clock__min" x1="200" y1="222" x2="200" y2="58"/>
+                <circle class="clock__pin" cx="200" cy="200" r="7"/>
+              </svg>
+              <p class="clock__digital"><span data-clock>09:00</span><small data-clock-label>робочий день почався</small></p>
             </div>
-            <span class="reg__time" aria-hidden="true">17:00</span>
-          </li>
-          <li class="reg__item">
-            <span class="reg__sec">§ 2</span>
-            <div><h3>Ми не приносимо проблем</h3><p>У будь-якій ситуації приходимо з варіантами рішень, а не з поганими новинами.</p></div>
-          </li>
-          <li class="reg__item">
-            <span class="reg__sec">§ 3</span>
-            <div><h3>Неможливих ситуацій немає</h3><p>Під кожен запит шукаємо всі можливі варіанти — з цифрами й нормами законодавства.</p></div>
-          </li>
-          <li class="reg__item">
-            <span class="reg__sec">§ 4</span>
-            <div><h3>Любов до людей і бізнесу</h3><p>Для кожного власника підбираємо зручний документообіг і точки контролю — і допомагаємо керувати бізнесом.</p></div>
-          </li>
-        </ol>
+          </div>
 
-        <footer class="reg__sign">
-          <div class="reg__signer">
-            <span>Засновниця</span>
-            <svg class="reg__signature" viewBox="0 0 160 50" aria-hidden="true"><path pathLength="1" d="M6 34c10-18 18-26 22-20s-8 24-2 22 14-24 20-22-4 18 2 18 10-12 16-14 2 10 8 10 12-8 18-9 4 6 10 6c8 0 20-6 34-10"/></svg>
-            <b>М. Панченко</b>
-          </div>
-          <div class="stamp stamp--reg">
-            <svg viewBox="0 0 120 120">
-              <circle cx="60" cy="60" r="56"/>
-              <circle cx="60" cy="60" r="34"/>
-              <text><textPath href="#stamp-circle">HAPPY FINANCE · ЗАТВЕРДЖЕНО · </textPath></text>
-            </svg>
-            <span>OK</span>
-          </div>
-        </footer>
-      </article>
+          <ol class="day__rules">
+            <li class="rule" data-at="540">
+              <p class="rule__time">09:00 <span>§ 1</span></p>
+              <h3>Починаємо з людей</h3>
+              <p>Любов до людей і бізнесу — наша головна цінність. Для кожного власника підбираємо зручний документообіг і точки контролю.</p>
+            </li>
+            <li class="rule" data-at="690">
+              <p class="rule__time">11:30 <span>§ 2</span></p>
+              <h3>Не приносимо проблем</h3>
+              <p>У будь-якій ситуації приходимо з варіантами рішень, а не з поганими новинами.</p>
+            </li>
+            <li class="rule" data-at="840">
+              <p class="rule__time">14:00 <span>§ 3</span></p>
+              <h3>Неможливих ситуацій немає</h3>
+              <p>Під кожен запит шукаємо всі можливі варіанти — з цифрами й нормами законодавства.</p>
+            </li>
+            <li class="rule rule--last" data-at="1020">
+              <p class="rule__time">17:00 <span>§ 4</span></p>
+              <h3>Закриваємо ноутбуки</h3>
+              <p>Добре працює той, хто добре відпочиває. Після 17:00 і у вихідні наша команда — з сім’ями. Тому все робиться якісно й вчасно — у робочий час.</p>
+              <p class="rule__now" data-now hidden></p>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
@@ -432,6 +422,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=6" defer></script>
+<script src="js/main.js?v=8" defer></script>
 </body>
 </html>

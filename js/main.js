@@ -106,7 +106,36 @@ const hero = document.querySelector('.hero');
 const pains = [...document.querySelectorAll('[data-pains] li')];
 const sticky = document.querySelector('.sticky-cta');
 const heroCta = document.querySelector('.hero__cta');
-const reg = document.querySelector('.reg');
+const day = document.querySelector('[data-day]');
+const dayTrack = day && day.querySelector('.day__track');
+const rules = day ? [...day.querySelectorAll('.rule')] : [];
+const clockEl = day && day.querySelector('[data-clock]');
+const clockLabel = day && day.querySelector('[data-clock-label]');
+const hourHand = day && day.querySelector('.clock__hour');
+const minHand = day && day.querySelector('.clock__min');
+const pad = (n) => String(n).padStart(2, '0');
+
+// Годинник блоку «Правила»: від 09:00 (540 хв) до 17:00 (1020 хв).
+function setDay(minutes) {
+  const m = Math.round(minutes);
+  const h = Math.floor(m / 60);
+  const mm = m % 60;
+  clockEl.textContent = `${pad(h)}:${pad(mm)}`;
+  hourHand.setAttribute('transform', `rotate(${((h % 12) + mm / 60) * 30} 200 200)`);
+  minHand.setAttribute('transform', `rotate(${mm * 6} 200 200)`);
+  day.style.setProperty('--p', ((m - 540) / 480).toFixed(4));
+  const left = 1020 - m;
+  clockLabel.textContent = m >= 1020 ? 'команда йде додому'
+    : m < 600 ? 'робочий день почався'
+    : `до кінця дня ${Math.floor(left / 60)} год ${pad(left % 60)} хв`;
+  let current = 0;
+  rules.forEach((r, i) => { if (m >= +r.dataset.at) current = i; });
+  rules.forEach((r, i) => {
+    r.classList.toggle('is-now', i === current);
+    r.classList.toggle('is-past', i < current);
+  });
+  day.classList.toggle('is-evening', m >= 1020);
+}
 
 function onScroll() {
   const vh = window.innerHeight;
@@ -123,8 +152,18 @@ function onScroll() {
     if (li.getBoundingClientRect().top < vh * 0.62) li.classList.add('is-done');
   });
 
-  // Регламент «підписується» і отримує печатку, коли з’являється на екрані.
-  if (reg && reg.getBoundingClientRect().top < vh * 0.6) reg.classList.add('is-signed');
+  // Блок «Правила»: на десктопі годинник іде разом зі скролом, на мобільному — стрибає до правила в центрі екрана.
+  if (day) {
+    if (window.innerWidth > 760 && !reduced) {
+      const r = dayTrack.getBoundingClientRect();
+      const p = clamp(-r.top / (dayTrack.offsetHeight - vh) / 0.88);
+      setDay(540 + p * 480);
+    } else {
+      let at = 540;
+      rules.forEach((rule) => { if (rule.getBoundingClientRect().top < vh * 0.6) at = +rule.dataset.at; });
+      setDay(at);
+    }
+  }
 
   // Мобільна кнопка з’являється, коли кнопка першого екрана пішла з поля зору.
   sticky.classList.toggle('is-on', heroCta.getBoundingClientRect().bottom < 0);

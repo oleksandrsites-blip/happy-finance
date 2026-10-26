@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=4">
+  <link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
 
@@ -260,6 +260,86 @@
     </div>
   </section>
 
+  <!-- Клієнти: картотека -->
+  <section class="clients" id="clients">
+    <div class="container clients__inner">
+      <div class="clients__head">
+        <p class="eyebrow">Клієнти</p>
+        <h2 class="h2">Картотека бізнесів, які ми ведемо</h2>
+        <div class="clients__stat">
+          <b>25+</b>
+          <p>бізнесів на постійному супроводі — <span>4 ТОВ і 21 ФОП</span>. Нових клієнтів нам рекомендують ті, кого ми вже ведемо.</p>
+        </div>
+      </div>
+
+      <ol class="cards" data-cards>
+        <li class="card is-active" style="--tab:0">
+          <button class="card__tab" aria-expanded="true"><span class="card__no">Справа № 01</span><span class="card__name">Виробництво</span><span class="card__form">ТОВ</span></button>
+          <div class="card__body"><div>
+            <dl class="card__meta"><div><dt>Команда</dt><dd>50 осіб</dd></div><div><dt>Форма</dt><dd>ТОВ</dd></div></dl>
+            <p class="card__what">Повний бухгалтерський і управлінський облік</p>
+          </div></div>
+        </li>
+        <li class="card" style="--tab:1">
+          <button class="card__tab" aria-expanded="false"><span class="card__no">Справа № 02</span><span class="card__name">Агровиробництво</span><span class="card__form">ТОВ</span></button>
+          <div class="card__body"><div>
+            <dl class="card__meta"><div><dt>Команда</dt><dd>до 10 осіб</dd></div><div><dt>Форма</dt><dd>ТОВ</dd></div></dl>
+            <p class="card__what">Бухгалтерський супровід</p>
+          </div></div>
+        </li>
+        <li class="card" style="--tab:2">
+          <button class="card__tab" aria-expanded="false"><span class="card__no">Справа № 03</span><span class="card__name">Автошкола</span><span class="card__form">ТОВ</span></button>
+          <div class="card__body"><div>
+            <dl class="card__meta"><div><dt>Команда</dt><dd>до 20 осіб</dd></div><div><dt>Форма</dt><dd>ТОВ</dd></div></dl>
+            <p class="card__what">Бухгалтерський супровід</p>
+          </div></div>
+        </li>
+        <li class="card" style="--tab:3">
+          <button class="card__tab" aria-expanded="false"><span class="card__no">Справа № 04</span><span class="card__name">Імпорт товарів</span><span class="card__form">ТОВ</span></button>
+          <div class="card__body"><div>
+            <dl class="card__meta"><div><dt>Команда</dt><dd>до 10 осіб</dd></div><div><dt>Форма</dt><dd>ТОВ</dd></div></dl>
+            <p class="card__what">Бухгалтерський супровід і ЗЕД</p>
+          </div></div>
+        </li>
+        <li class="card" style="--tab:4">
+          <button class="card__tab" aria-expanded="false"><span class="card__no">Справа № 05</span><span class="card__name">Сфера послуг</span><span class="card__form">ФОП з ПДВ</span></button>
+          <div class="card__body"><div>
+            <dl class="card__meta"><div><dt>Форма</dt><dd>ФОП, платник ПДВ</dd></div></dl>
+            <p class="card__what">Супровід з ПДВ: податкові накладні, звіти</p>
+          </div></div>
+        </li>
+        <li class="card" style="--tab:5">
+          <button class="card__tab" aria-expanded="false"><span class="card__no">Справи № 06–25</span><span class="card__name">Сфера послуг</span><span class="card__form">20 ФОП</span></button>
+          <div class="card__body"><div>
+            <dl class="card__meta"><div><dt>Клієнтів</dt><dd>20 ФОП</dd></div><div><dt>Форма</dt><dd>ФОП</dd></div></dl>
+            <p class="card__what">Щомісячний бухгалтерський супровід</p>
+          </div></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Цінності: 17:00 -->
+  <section class="values" id="values">
+    <svg class="notch notch--top" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V10C1080 10 860 18 720 86C580 18 360 10 0 10Z"/></svg>
+    <div class="container">
+      <p class="eyebrow eyebrow--light">Наші принципи</p>
+      <div class="values__main">
+        <p class="values__time" aria-label="17:00">17<span>:</span>00</p>
+        <div class="values__text">
+          <h2 class="values__title">Добре працює той, хто добре відпочиває</h2>
+          <p>О 17:00 наша команда закриває ноутбуки і йде до своїх сімей. Вихідні — теж вихідні. Тому все робиться якісно й вчасно — у робочий час.</p>
+          <p class="values__now" data-now hidden></p>
+        </div>
+      </div>
+      <ul class="values__list">
+        <li><h3>Любов до людей і бізнесу</h3><p>Для кожного власника підбираємо зручний документообіг і точки контролю.</p></li>
+        <li><h3>Не приносимо проблем</h3><p>У будь-якій ситуації приходимо з варіантами рішень.</p></li>
+        <li><h3>Неможливих ситуацій немає</h3><p>Під кожен запит шукаємо всі варіанти — з цифрами й нормами законодавства.</p></li>
+      </ul>
+    </div>
+  </section>
+
 </main>
 
 <!-- Мобільна кнопка заявки -->
@@ -305,6 +385,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=3" defer></script>
+<script src="js/main.js?v=5" defer></script>
 </body>
 </html>

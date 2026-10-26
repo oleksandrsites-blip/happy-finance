@@ -74,6 +74,33 @@ folderTabs.forEach((tab) => tab.addEventListener('click', () => {
   });
 }));
 
+/* ---------- Клієнти: картотека (наведення на десктопі, тап на мобільному) ---------- */
+const cards = [...document.querySelectorAll('.card')];
+const openCard = (card) => cards.forEach((c) => {
+  c.classList.toggle('is-active', c === card);
+  c.querySelector('.card__tab').setAttribute('aria-expanded', String(c === card));
+});
+cards.forEach((card) => {
+  card.querySelector('.card__tab').addEventListener('click', () => openCard(card));
+  card.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') openCard(card); });
+});
+
+/* ---------- Цінності: чи працюємо ми зараз (київський час, пн–пт до 17:00) ---------- */
+const nowEl = document.querySelector('[data-now]');
+if (nowEl) {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('uk-UA', {
+    timeZone: 'Europe/Kyiv', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+  }).formatToParts(new Date()).map((p) => [p.type, p.value]));
+  const hour = +parts.hour;
+  const weekend = ['сб', 'нд'].includes(parts.weekday.replace('.', ''));
+  const working = !weekend && hour >= 9 && hour < 17;
+  nowEl.textContent = working
+    ? `${parts.hour}:${parts.minute} у Києві — ми на зв’язку`
+    : `${parts.hour}:${parts.minute} у Києві — ми відпочиваємо, відповімо в робочий час`;
+  nowEl.classList.toggle('is-off', !working);
+  nowEl.hidden = false;
+}
+
 /* ---------- Скрол: шапка, стос документів, «болі», мобільна кнопка ---------- */
 const header = document.querySelector('.header');
 const stack = document.querySelector('[data-stack]');

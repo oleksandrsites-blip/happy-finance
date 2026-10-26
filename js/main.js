@@ -3,56 +3,66 @@ document.documentElement.classList.add('js');
 
 // Контакти клієнтки: поки невідомі, вписати, коли надішле Дмитро.
 const CONTACTS = {
-  telegram: '', // 'https://t.me/username'
+  phone: '',     // '+380XXXXXXXXX'
+  telegram: '',  // 'https://t.me/username'
+  instagram: '', // 'https://instagram.com/username'
 };
 
 const clamp = (v, min = 0, max = 1) => Math.min(max, Math.max(min, v));
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- Форма заявки: одна на весь сайт, відкривається будь-якою кнопкою [data-lead] ---------- */
+/* ---------- Заявка: модалка (кнопки [data-lead]) і форма у фінальному блоці ---------- */
 const lead = document.getElementById('lead');
-const form = lead.querySelector('[data-form]');
-const formWrap = lead.querySelector('[data-form-wrap]');
-const done = lead.querySelector('[data-done]');
-const hint = lead.querySelector('[data-hint]');
-
-document.querySelectorAll('[data-lead]').forEach((btn) => btn.addEventListener('click', () => {
+const openLead = () => {
   lead.showModal();
   document.body.classList.add('lead-open');
-}));
+};
+document.querySelectorAll('[data-lead]').forEach((btn) => btn.addEventListener('click', openLead));
 lead.querySelector('[data-close]').addEventListener('click', () => lead.close());
 lead.addEventListener('click', (e) => { if (e.target === lead) lead.close(); });
 lead.addEventListener('close', () => document.body.classList.remove('lead-open'));
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const btn = form.querySelector('[type="submit"]');
-  btn.disabled = true;
-  try {
-    const res = await fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form)).toString(),
-    });
-    if (!res.ok) throw new Error(res.status);
-    formWrap.hidden = true;
-    done.hidden = false;
-  } catch {
-    btn.disabled = false;
-    hint.textContent = 'Не вдалося надіслати. Спробуйте ще раз за хвилину.';
-    hint.classList.add('is-error');
-  }
+document.querySelectorAll('[data-lead-box]').forEach((box) => {
+  const form = box.querySelector('[data-form]');
+  const hint = box.querySelector('[data-hint]');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('[type="submit"]');
+    btn.disabled = true;
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString(),
+      });
+      if (!res.ok) throw new Error(res.status);
+      box.querySelector('[data-form-wrap]').hidden = true;
+      box.querySelector('[data-done]').hidden = false;
+    } catch {
+      btn.disabled = false;
+      hint.textContent = 'Не вдалося надіслати. Спробуйте ще раз за хвилину.';
+      hint.classList.add('is-error');
+    }
+  });
 });
 
-// Поки Telegram невідомий, кнопка Telegram відкриває ту саму форму заявки.
-document.querySelectorAll('[data-contact="telegram"]').forEach((a) => {
-  if (CONTACTS.telegram) {
-    a.href = CONTACTS.telegram;
-    a.target = '_blank';
-    a.rel = 'noopener';
-  } else {
-    a.addEventListener('click', (e) => { e.preventDefault(); lead.showModal(); });
+/* ---------- Контакти: посилання й тексти з CONTACTS; поки порожньо — ведуть до форми ---------- */
+const finalName = document.querySelector('.case__form input[name="name"]');
+document.querySelectorAll('[data-contact]').forEach((a) => {
+  const kind = a.dataset.contact;
+  const value = CONTACTS[kind];
+  if (value) {
+    a.href = kind === 'phone' ? `tel:${value.replace(/[^+\d]/g, '')}` : value;
+    if (kind !== 'phone') { a.target = '_blank'; a.rel = 'noopener'; }
+    if (a.dataset.fill === 'phone') a.textContent = value;
+    if (a.dataset.fill === 'telegram') a.textContent = `@${value.split('/').pop()}`;
+    return;
   }
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (a.closest('.final')) finalName.focus();
+    else openLead();
+  });
 });
 
 /* ---------- Послуги: вкладки папки ---------- */
@@ -106,6 +116,7 @@ const hero = document.querySelector('.hero');
 const pains = [...document.querySelectorAll('[data-pains] li')];
 const sticky = document.querySelector('.sticky-cta');
 const heroCta = document.querySelector('.hero__cta');
+const finalBox = document.querySelector('.case');
 const day = document.querySelector('[data-day]');
 const dayTrack = day && day.querySelector('.day__track');
 const rules = day ? [...day.querySelectorAll('.rule')] : [];
@@ -166,7 +177,8 @@ function onScroll() {
   }
 
   // Мобільна кнопка з’являється, коли кнопка першого екрана пішла з поля зору.
-  sticky.classList.toggle('is-on', heroCta.getBoundingClientRect().bottom < 0);
+  // і ховається біля фінальної форми, щоб не перекривати її.
+  sticky.classList.toggle('is-on', heroCta.getBoundingClientRect().bottom < 0 && finalBox.getBoundingClientRect().top > vh);
 }
 
 let ticking = false;

@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=9">
+  <link rel="stylesheet" href="css/style.css?v=10">
 </head>
 <body>
 
@@ -377,7 +377,84 @@
     </div>
   </section>
 
+  <!-- Фінал: справа № 26 -->
+  <section class="final" id="contact">
+    <div class="container final__inner">
+      <div class="final__intro">
+        <h2 class="h2">Справа №&nbsp;26 може бути вашою</h2>
+        <p class="final__lead">Залиште контакт — ми зв’яжемося, розпитаємо про ваш бізнес і запропонуємо рішення. Вартість розраховуємо після знайомства: вона залежить від обсягу операцій.</p>
+        <ul class="final__contacts">
+          <li><span>Telegram</span><a href="#" data-contact="telegram" data-fill="telegram">@happyfinance</a></li>
+          <li><span>Телефон</span><a href="#" data-contact="phone" data-fill="phone">+380 (00) 000 00 00</a></li>
+          <li><span>Графік</span><p>Пн–Пт, до 17:00</p></li>
+        </ul>
+      </div>
+
+      <div class="case" data-lead-box>
+        <div class="case__spine" aria-hidden="true"><span>26</span><b>Ваш бізнес</b><i>нова справа</i></div>
+        <div class="case__sheet">
+          <div data-form-wrap>
+            <p class="case__kicker">Заява · Справа № 26</p>
+            <form class="case__form" name="lead" method="POST" data-netlify="true" netlify-honeypot="company" data-form>
+              <input type="hidden" name="form-name" value="lead">
+              <p hidden><label>Не заповнюйте: <input name="company"></label></p>
+              <label class="line-field"><span>Ваше ім’я</span><input name="name" required autocomplete="given-name"></label>
+              <label class="line-field"><span>Телефон</span><input name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+380"></label>
+              <fieldset class="lead__msg">
+                <legend>Як зручніше зв’язатися?</legend>
+                <label><input type="radio" name="messenger" value="Дзвінок" checked><span>Дзвінок</span></label>
+                <label><input type="radio" name="messenger" value="Telegram"><span>Telegram</span></label>
+                <label><input type="radio" name="messenger" value="Viber"><span>Viber</span></label>
+              </fieldset>
+              <button class="btn btn--accent btn--block btn--lg" type="submit">Залишити заявку <svg class="btn__arrow"><use href="#arrow"/></svg></button>
+              <p class="lead__hint" data-hint>Займе 30 секунд. Перша розмова ні до чого не зобов’язує.</p>
+            </form>
+          </div>
+          <div class="lead__done" data-done hidden>
+            <div class="stamp stamp--done">
+              <svg viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="56"/>
+                <circle cx="60" cy="60" r="34"/>
+                <text><textPath href="#stamp-circle">HAPPY FINANCE · ПРИЙНЯТО · </textPath></text>
+              </svg>
+              <span>OK</span>
+            </div>
+            <h3 class="lead__title">Справу № 26 відкрито</h3>
+            <p class="lead__text">Дякуємо! Зв’яжемося з вами найближчим робочим часом.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a href="#top" class="logo logo--light" aria-label="Happy Finance — на початок">
+        <svg class="logo__mark"><use href="#mark"/></svg>
+        <span class="logo__text">Happy<br>Finance</span>
+      </a>
+      <p>Фінансово-бухгалтерський супровід ФОП і ТОВ. Кропивницький.</p>
+    </div>
+    <nav class="footer__nav" aria-label="Меню в підвалі">
+      <a href="#pains">Чим допомагаємо</a>
+      <a href="#services">Послуги</a>
+      <a href="#about">Про нас</a>
+      <a href="#clients">Клієнти</a>
+    </nav>
+    <div class="footer__nav">
+      <a href="#" data-contact="telegram">Telegram</a>
+      <a href="#" data-contact="instagram">Instagram</a>
+      <a href="#" data-contact="phone" data-fill="phone">+380 (00) 000 00 00</a>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© 2026 Happy Finance</span>
+    <span>Пн–Пт, до 17:00</span>
+  </div>
+</footer>
 
 <!-- Мобільна кнопка заявки -->
 <div class="sticky-cta">
@@ -385,7 +462,7 @@
 </div>
 
 <!-- Форма заявки (одна на весь сайт) -->
-<dialog class="lead" id="lead" aria-labelledby="lead-title">
+<dialog class="lead" id="lead" aria-labelledby="lead-title" data-lead-box>
   <button class="lead__close" data-close aria-label="Закрити"></button>
   <div data-form-wrap>
     <svg class="lead__mark"><use href="#mark"/></svg>
@@ -422,6 +499,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=8" defer></script>
+<script src="js/main.js?v=10" defer></script>
 </body>
 </html>

@@ -74,16 +74,14 @@ folderTabs.forEach((tab) => tab.addEventListener('click', () => {
   });
 }));
 
-/* ---------- Клієнти: картотека (наведення на десктопі, тап на мобільному) ---------- */
-const cards = [...document.querySelectorAll('.card')];
-const openCard = (card) => cards.forEach((c) => {
-  c.classList.toggle('is-active', c === card);
-  c.querySelector('.card__tab').setAttribute('aria-expanded', String(c === card));
-});
-cards.forEach((card) => {
-  card.querySelector('.card__tab').addEventListener('click', () => openCard(card));
-  card.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') openCard(card); });
-});
+/* ---------- Клієнти: полиця з папками, відкриваються лише по кліку ---------- */
+const spines = [...document.querySelectorAll('.spine')];
+spines.forEach((spine) => spine.querySelector('.spine__btn').addEventListener('click', () => {
+  spines.forEach((sp) => {
+    sp.classList.toggle('is-open', sp === spine);
+    sp.querySelector('.spine__btn').setAttribute('aria-expanded', String(sp === spine));
+  });
+}));
 
 /* ---------- Цінності: чи працюємо ми зараз (київський час, пн–пт до 17:00) ---------- */
 const nowEl = document.querySelector('[data-now]');
@@ -108,6 +106,7 @@ const hero = document.querySelector('.hero');
 const pains = [...document.querySelectorAll('[data-pains] li')];
 const sticky = document.querySelector('.sticky-cta');
 const heroCta = document.querySelector('.hero__cta');
+const reg = document.querySelector('.reg');
 
 function onScroll() {
   const vh = window.innerHeight;
@@ -123,6 +122,9 @@ function onScroll() {
   pains.forEach((li) => {
     if (li.getBoundingClientRect().top < vh * 0.62) li.classList.add('is-done');
   });
+
+  // Регламент «підписується» і отримує печатку, коли з’являється на екрані.
+  if (reg && reg.getBoundingClientRect().top < vh * 0.6) reg.classList.add('is-signed');
 
   // Мобільна кнопка з’являється, коли кнопка першого екрана пішла з поля зору.
   sticky.classList.toggle('is-on', heroCta.getBoundingClientRect().bottom < 0);

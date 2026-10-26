@@ -1,6 +1,11 @@
 // Happy Finance — інтерактив сторінки.
 document.documentElement.classList.add('js');
 
+// Контакти клієнтки: поки невідомі, вписати, коли надішле Дмитро.
+const CONTACTS = {
+  telegram: '', // 'https://t.me/username'
+};
+
 const clamp = (v, min = 0, max = 1) => Math.min(max, Math.max(min, v));
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -38,6 +43,36 @@ form.addEventListener('submit', async (e) => {
     hint.classList.add('is-error');
   }
 });
+
+// Поки Telegram невідомий, кнопка Telegram відкриває ту саму форму заявки.
+document.querySelectorAll('[data-contact="telegram"]').forEach((a) => {
+  if (CONTACTS.telegram) {
+    a.href = CONTACTS.telegram;
+    a.target = '_blank';
+    a.rel = 'noopener';
+  } else {
+    a.addEventListener('click', (e) => { e.preventDefault(); lead.showModal(); });
+  }
+});
+
+/* ---------- Послуги: вкладки папки ---------- */
+const folderTabs = [...document.querySelectorAll('.folder__tab')];
+folderTabs.forEach((tab) => tab.addEventListener('click', () => {
+  folderTabs.forEach((t) => {
+    t.classList.toggle('is-active', t === tab);
+    t.setAttribute('aria-selected', String(t === tab));
+  });
+  document.querySelectorAll('[data-doc]').forEach((doc) => {
+    const show = doc.dataset.doc === tab.dataset.tab;
+    doc.hidden = !show;
+    doc.classList.toggle('is-active', show);
+    if (show && !reduced) {
+      doc.classList.remove('is-entering');
+      void doc.offsetWidth;
+      doc.classList.add('is-entering');
+    }
+  });
+}));
 
 /* ---------- Скрол: шапка, стос документів, «болі», мобільна кнопка ---------- */
 const header = document.querySelector('.header');

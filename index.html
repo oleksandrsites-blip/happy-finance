@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 
@@ -25,6 +25,9 @@
     <rect x="27" y="25" width="12.5" height="54" rx="6.25"/>
     <rect x="60.5" y="25" width="12.5" height="54" rx="6.25"/>
     <path d="M39.5 63C39.5 41 60.5 40 60.5 56"/>
+  </symbol>
+  <symbol id="tg" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M21.6 3.2 2.3 10.6c-.9.4-.9 1.6.1 1.9l4.8 1.5 1.9 5.8c.3.8 1.3 1 1.9.4l2.6-2.5 4.8 3.6c.7.5 1.7.1 1.9-.8l3.1-15c.2-1-.8-1.9-1.8-1.5ZM9.8 14.4l-.4 4-1.6-5 9.9-6.3-7.9 7.3Z"/>
   </symbol>
   <symbol id="arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <path d="M4 10h12m-5-5 5 5-5 5"/>
@@ -57,8 +60,9 @@
         <p class="hero__lead">Ведемо бухгалтерію, податки, кадри й управлінський облік — щоб ви бачили цифри свого бізнесу і спокійно займались справою.</p>
         <div class="hero__cta">
           <button class="btn btn--accent btn--lg" data-lead>Залишити заявку <svg class="btn__arrow"><use href="#arrow"/></svg></button>
-          <p class="hero__micro">Займе 30 секунд. <br>Перша розмова ні до чого не зобов’язує.</p>
+          <a class="btn btn--ghost btn--lg" href="#" data-contact="telegram"><svg class="btn__icon"><use href="#tg"/></svg>Написати в Telegram</a>
         </div>
+        <p class="hero__micro">Займе 30 секунд. Перша розмова ні до чого не зобов’язує.</p>
         <ul class="hero__facts">
           <li><b>7 років</b> на ринку</li>
           <li><b>25+</b> бізнесів на супроводі</li>
@@ -129,10 +133,129 @@
         <li><span class="pains__text">Прибуток наче є, а грошей на рахунку немає</span><span class="pains__fix">Покажемо P&amp;L і Cashflow — і де губляться гроші</span></li>
         <li><span class="pains__text">Бухгалтер звільнився, і ніхто не знає, що в базі</span><span class="pains__fix">Наведемо порядок і вибудуємо систему контролю</span></li>
       </ol>
+    </div>
+  </section>
 
-      <div class="pains__end">
-        <p>Розкажіть, що турбує саме вас, — запропонуємо рішення.</p>
-        <button class="btn btn--accent" data-lead>Залишити заявку <svg class="btn__arrow"><use href="#arrow"/></svg></button>
+  <!-- Послуги: папка з документами -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services__head">
+        <p class="eyebrow eyebrow--light">Послуги</p>
+        <h2 class="h2">Усе, що потрібно бізнесу, — в одній папці</h2>
+      </div>
+
+      <div class="folder" data-folder>
+        <div class="folder__tabs" role="tablist" aria-label="Послуги для кого">
+          <button class="folder__tab is-active" role="tab" aria-selected="true" aria-controls="doc-fop" data-tab="fop">Для ФОП</button>
+          <button class="folder__tab" role="tab" aria-selected="false" aria-controls="doc-tov" data-tab="tov">Для ТОВ</button>
+          <button class="folder__tab" role="tab" aria-selected="false" aria-controls="doc-own" data-tab="own">Для власника</button>
+        </div>
+
+        <div class="folder__body">
+          <svg class="clip clip--folder" viewBox="0 0 46 120" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="16" height="100" rx="8"/>
+            <rect x="28" y="2" width="16" height="100" rx="8"/>
+            <path d="M18 76C18 40 28 38 28 60"/>
+          </svg>
+
+          <article class="doc is-active" id="doc-fop" role="tabpanel" data-doc="fop">
+            <header class="doc__head">
+              <div>
+                <p class="doc__kicker">Додаток № 1 · Перелік послуг</p>
+                <h3 class="doc__title">Супровід ФОП</h3>
+              </div>
+              <p class="doc__note">Від реєстрації до щомісячних звітів — щоб ви займались бізнесом, а не податковою.</p>
+            </header>
+            <ol class="doc__list">
+              <li><h4>Відкриття ФОП</h4><p>Підберемо КВЕДи й систему оподаткування, зареєструємо онлайн без вашої участі.</p></li>
+              <li><h4>Щомісячний супровід</h4><p>Податки, звіти, книга доходів, перевірка виписки, контроль ліміту, ПРРО.</p></li>
+              <li><h4>Первинні документи</h4><p>Рахунки, акти, накладні, шаблони договорів, акти звірок.</p></li>
+              <li><h4>Кадровий облік</h4><p>Договори, зарплата, табель, лікарняні й декретні — зокрема під гранти.</p></li>
+              <li><h4>Фінмоніторинг у банку</h4><p>Пояснення й документи для перевірки будь-якої складності.</p></li>
+              <li><h4>Закриття ФОП</h4><p>Закриємо правильно — без «хвостів» перед податковою.</p></li>
+            </ol>
+          </article>
+
+          <article class="doc" id="doc-tov" role="tabpanel" data-doc="tov" hidden>
+            <header class="doc__head">
+              <div>
+                <p class="doc__kicker">Додаток № 2 · Перелік послуг</p>
+                <h3 class="doc__title">Супровід ТОВ</h3>
+              </div>
+              <p class="doc__note">Повний бухгалтерський і податковий облік — з ПДВ і без, з експортом та імпортом.</p>
+            </header>
+            <ol class="doc__list">
+              <li><h4>Відкриття ТОВ</h4><p>КВЕДи, система оподаткування, онлайн-реєстрація за модельним статутом.</p></li>
+              <li><h4>Повний бухоблік</h4><p>Єдиний податок чи загальна система, з ПДВ і без, ЗЕД.</p></li>
+              <li><h4>Документи й банк</h4><p>Первинка, ТТН, ПРРО, клієнт-банк, проведення в ПЗ, контроль взаєморозрахунків.</p></li>
+              <li><h4>ПДВ</h4><p>Реєстрація й розблокування податкових накладних, звіти з ПДВ.</p></li>
+              <li><h4>Кадровий облік</h4><p>Від прийняття на роботу до звільнення — зарплата, табель, звіти.</p></li>
+              <li><h4>Звітність</h4><p>Щомісячні, квартальні й річні звіти — податкова, статистика, ПФУ.</p></li>
+            </ol>
+          </article>
+
+          <article class="doc" id="doc-own" role="tabpanel" data-doc="own" hidden>
+            <header class="doc__head">
+              <div>
+                <p class="doc__kicker">Додаток № 3 · Перелік послуг</p>
+                <h3 class="doc__title">Управлінський облік і консалтинг</h3>
+              </div>
+              <p class="doc__note">Цифри, за якими керують бізнесом. Без них управління — не управління, а ілюзія.</p>
+            </header>
+            <ol class="doc__list">
+              <li><h4>P&amp;L, Cashflow, Balance</h4><p>Бачите реальний стан бізнесу й ухвалюєте рішення не навмання.</p></li>
+              <li><h4>Аудит бізнес-процесів</h4><p>Знаходимо вузькі місця, виправляємо й оптимізуємо — для зростання прибутку.</p></li>
+              <li><h4>Автоматизація в CRM</h4><p>Ефективніша команда і краща комунікація з клієнтами.</p></li>
+              <li><h4>Ревізія фінвідділу</h4><p>Перевіряємо роботу бухгалтерії та фінансового відділу.</p></li>
+              <li><h4>Оргструктура й документообіг</h4><p>Прописуємо точки контролю для власника під реалії компанії.</p></li>
+              <li><h4>Навчання бухгалтерів</h4><p>Підвищення кваліфікації вашої команди — на практиці.</p></li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Про засновницю: трудова книжка -->
+  <section class="about" id="about">
+    <div class="container about__inner">
+      <aside class="about__card">
+        <div class="idphoto">
+          <svg class="clip clip--photo" viewBox="0 0 46 120" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="16" height="100" rx="8"/>
+            <rect x="28" y="2" width="16" height="100" rx="8"/>
+            <path d="M18 76C18 40 28 38 28 60"/>
+          </svg>
+          <div class="idphoto__img"><svg><use href="#mark"/></svg><span>Фото засновниці</span></div>
+        </div>
+        <p class="about__name">Юлія Кузнецова</p>
+        <p class="about__role">Засновниця Happy Finance,<br>ексфінансова директорка</p>
+        <blockquote class="about__quote">«Я ніколи не мріяла про свою компанію — думала, що ще рано. А вона виросла сама: з рекомендацій клієнтів».</blockquote>
+      </aside>
+
+      <div class="about__head">
+        <p class="eyebrow">Про засновницю</p>
+        <h2 class="h2">Бухгалтерка, яка керувала бізнесом зсередини</h2>
+        <p class="about__lead">Тому консультації в нас — не лише про закони. Це практичний досвід побудови фінансів у командах до 200 людей.</p>
+      </div>
+
+      <div class="about__body">
+
+        <div class="book">
+          <p class="book__title">Трудова книжка <span>Ю. Кузнецова</span></p>
+          <div class="book__row book__row--head"><span>№</span><span>Місце роботи</span><span>Посада і що зроблено</span></div>
+          <div class="book__row"><span>1</span><span>Оптова компанія</span><span><b>Операторка.</b> Первинні документи, податкові накладні, акти звірки — паралельно з денним навчанням.</span></div>
+          <div class="book__row"><span>2</span><span>Управлінська компанія, 16 філій</span><span><b>Старша бухгалтерка, далі — головна бухгалтерка магазину.</b> Каса, платежі, авансові звіти.</span></div>
+          <div class="book__row"><span>3</span><span>Аптечна мережа</span><span><b>Старша бухгалтерка з касової дисципліни.</b> Створила навчання й інструкції для фармацевтів, щоб помилки не виникали.</span></div>
+          <div class="book__row"><span>4</span><span>Кав’ярня з кондитерським цехом, 50 людей</span><span><b>Бухгалтерка, потім директорка.</b> Перевела облік із зошитів у 1С, вивела цех на опт і експорт в Ізраїль.</span></div>
+          <div class="book__row"><span>5</span><span>Дистрибуційна компанія, 200+ людей</span><span><b>Фінансова директорка.</b> Побудувала фінвідділ під час продажу бізнесу, знайшла крадіжки, вибудувала контроль.</span></div>
+          <div class="book__row is-now"><span>6</span><span>Happy Finance</span><span><b>Засновниця.</b> 7 років тому почала з бухгалтерії тата — далі клієнти приходили за рекомендаціями.</span></div>
+        </div>
+
+        <div class="about__result">
+          <p class="about__result-label">Нестачі на складі дистрибуційної компанії, на місяць</p>
+          <p class="about__result-value"><s>1,5 млн</s><svg viewBox="0 0 40 20" aria-hidden="true"><path d="M2 10h34m-7-7 7 7-7 7"/></svg><b>12 тис. грн</b></p>
+        </div>
       </div>
     </div>
   </section>
@@ -182,6 +305,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=2" defer></script>
+<script src="js/main.js?v=3" defer></script>
 </body>
 </html>

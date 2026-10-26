@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Finance — фінансово-бухгалтерський супровід ФОП і ТОВ</title>
+  <meta name="description" content="Комплексний фінансовий партнер для підприємців: відкриття ФОП і ТОВ, щомісячний бухгалтерський супровід, кадровий і управлінський облік, P&L та Cashflow.">
+  <meta name="theme-color" content="#0D1120">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:title" content="Happy Finance — бухгалтерія, що дає спокій">
+  <meta property="og:description" content="Від відкриття ФОП до управлінського обліку. Цифри бізнесу під контролем — і ваш спокій теж.">
+  <link rel="icon" href="assets/brand/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="8" y="8" width="84" height="84"/>
+    <rect x="27" y="25" width="12.5" height="54" rx="6.25"/>
+    <rect x="60.5" y="25" width="12.5" height="54" rx="6.25"/>
+    <path d="M39.5 63C39.5 41 60.5 40 60.5 56"/>
+  </symbol>
+</svg>
+
+<header class="header" id="top">
+  <div class="container header__inner">
+    <a href="#top" class="logo" aria-label="Happy Finance — на початок">
+      <svg class="logo__mark"><use href="#mark"/></svg>
+      <span class="logo__text">Happy<br>Finance</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Головне меню">
+      <a href="#services">Послуги</a>
+      <a href="#approach">Підхід</a>
+      <a href="#about">Про засновницю</a>
+      <a href="#clients">Клієнти</a>
+      <a href="#contact" class="nav__cta-mobile">Консультація</a>
+    </nav>
+    <a href="#contact" class="btn btn--accent btn--sm header__cta">Консультація</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+  <!-- Перший екран -->
+  <section class="hero">
+    <div class="hero__grid" aria-hidden="true"></div>
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="eyebrow eyebrow--light"><span class="dot"></span>Фінансово-бухгалтерський супровід ФОП і ТОВ</p>
+        <h1 class="hero__title">Цифри бізнесу під&nbsp;контролем. <span class="hero__title-soft">Ваш спокій&nbsp;— теж.</span></h1>
+        <p class="hero__lead">Комплексний фінансовий партнер для підприємців: від відкриття ФОП до управлінського обліку, P&amp;L і Cashflow. Бачимо проблеми бізнесу через цифри — і приходимо з рішеннями.</p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--accent">Отримати консультацію <svg class="btn__arrow" viewBox="0 0 20 20"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></a>
+          <a href="#quiz" class="btn btn--ghost">Підібрати послуги</a>
+        </div>
+      </div>
+
+      <div class="hero__visual" aria-hidden="true">
+        <svg class="hero__mark" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".45" stroke-linecap="round" stroke-linejoin="round">
+          <rect class="draw" pathLength="1" x="8" y="8" width="84" height="84"/>
+          <rect class="draw" pathLength="1" x="27" y="25" width="12.5" height="54" rx="6.25"/>
+          <rect class="draw" pathLength="1" x="60.5" y="25" width="12.5" height="54" rx="6.25"/>
+          <path class="draw draw--accent" pathLength="1" d="M39.5 63C39.5 41 60.5 40 60.5 56"/>
+        </svg>
+
+        <div class="report">
+          <div class="report__head">
+            <span>Фінансовий звіт</span>
+            <span class="report__month">жовтень</span>
+          </div>
+          <div class="report__chart">
+            <i style="--h:46%"></i><i style="--h:58%"></i><i style="--h:52%"></i><i style="--h:70%"></i><i style="--h:64%"></i><i style="--h:84%" class="is-accent"></i>
+          </div>
+          <div class="report__row"><span>Податки сплачено</span><b class="ok">вчасно</b></div>
+          <div class="report__row"><span>Ліміт доходу ФОП</span><b>58%</b></div>
+          <div class="report__bar"><i style="--w:58%"></i></div>
+        </div>
+
+        <div class="chip-float">
+          <svg viewBox="0 0 20 20"><path d="m5 10.5 3.2 3L15 7"/></svg>
+          Звіт подано
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <ul class="stats">
+        <li><b data-count="7">7</b><span>років — і компанія росте лише через рекомендації</span></li>
+        <li><b data-count="25" data-suffix="+">25+</b><span>бізнесів на постійному супроводі</span></li>
+        <li><b data-count="200" data-suffix="+">200+</b><span>людей — найбільша команда, фінанси якої вела засновниця</span></li>
+        <li><b>17:00</b><span>після цього наша команда — з&nbsp;сім’ями</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Маніфест -->
+  <section class="manifesto">
+    <div class="container">
+      <p class="manifesto__text" data-words>Бухгалтерія — це не просто документи для податкової. Це ваш спокій і безпека — зараз і в майбутньому. Без цифр управління бізнесом — <em>не управління, а ілюзія.</em></p>
+    </div>
+  </section>
+
+  <!-- Послуги -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Послуги</p>
+        <h2 class="h2">Від першого КВЕДу до&nbsp;управлінських звітів</h2>
+      </div>
+
+      <div class="services__layout">
+        <aside class="services__aside reveal">
+          <div class="switch" role="tablist" aria-label="Тип бізнесу">
+            <button class="switch__btn is-active" role="tab" aria-selected="true" data-tab="fop">Для ФОП</button>
+            <button class="switch__btn" role="tab" aria-selected="false" data-tab="tov">Для ТОВ</button>
+            <span class="switch__pill" aria-hidden="true"></span>
+          </div>
+          <p class="services__note" data-note="fop">Беремо на себе все — від реєстрації до щомісячних звітів, щоб ви займались бізнесом, а не податковою.</p>
+          <p class="services__note" data-note="tov" hidden>Повний бухгалтерський, податковий і управлінський облік — з ПДВ і без, з експортом та імпортом.</p>
+          <a href="#quiz" class="link-arrow">Не знаєте, що саме потрібно? Підберемо <svg viewBox="0 0 20 20"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></a>
+        </aside>
+
+        <div class="services__lists">
+          <ol class="acc" data-panel="fop">
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">01</span><span class="acc__title">Відкриття ФОП</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Підберемо КВЕДи й оптимальну систему оподаткування та зареєструємо ФОП онлайн — без вашої участі.</p>
+              </div></div>
+            </li>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">02</span><span class="acc__title">Щомісячний бухгалтерський супровід</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Податки, звіти, ліміти й документи — під щомісячним контролем.</p>
+                <ul class="tags"><li>Аудит кабінету в податковій</li><li>Реквізити для сплати податків</li><li>Контроль сплати податків</li><li>Перевірка банківської виписки</li><li>Контроль ліміту доходу</li><li>Книга доходів</li><li>Зміна КВЕДів онлайн</li><li>Реєстрація ПРРО</li><li>Рахунки, акти, накладні</li><li>Шаблони договорів</li><li>Звіти в податкову</li><li>Акти звірок</li></ul>
+              </div></div>
+            </li>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">03</span><span class="acc__title">Фінансовий супровід</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Автоматизуємо облік у CRM, вибудуємо структуру компанії та бізнес-процеси, розробимо фінансові документи під ваш запит.</p>
+                <ul class="tags"><li>Облік у CRM</li><li>Структура компанії</li><li>Бізнес-процеси</li><li>Первинні документи</li><li>Фінансові звіти</li></ul>
+              </div></div>
+            </li>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">04</span><span class="acc__title">Кадровий облік</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Від прийняття на роботу, зокрема під гранти, — до звільнення.</p>
+                <ul class="tags"><li>Трудові договори</li><li>Нарахування зарплати</li><li>Табель робочого часу</li><li>Лікарняні та декретні</li><li>Звіти</li></ul>
+              </div></div>
+            </li>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">05</span><span class="acc__title">Фінансовий моніторинг у банку</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Підготуємо пояснення й документи та супроводимо перевірку банку будь-якої складності.</p>
+              </div></div>
+            </li>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">06</span><span class="acc__title">Закриття ФОП</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Закриємо ФОП правильно — без «хвостів» перед податковою.</p>
+              </div></div>
+            </li>
+          </ol>
+
+          <ol class="acc" data-panel="tov" hidden>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">01</span><span class="acc__title">Відкриття ТОВ</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Підберемо КВЕДи й систему оподаткування, зареєструємо ТОВ онлайн за модельним статутом.</p>
+              </div></div>
+            </li>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">02</span><span class="acc__title">Повний бухгалтерський супровід</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Єдиний податок чи загальна система, з ПДВ і без, експорт та імпорт — ведемо щомісяця.</p>
+                <ul class="tags"><li>Рахунки, накладні, акти</li><li>Договори, ТТН</li><li>ПРРО</li><li>Акти звірок</li><li>Клієнт-банк і платежі</li><li>Проведення в ПЗ</li><li>Контроль взаєморозрахунків</li></ul>
+              </div></div>
+            </li>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">03</span><span class="acc__title">ПДВ</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Реєстрація та розблокування податкових накладних, звіти з ПДВ.</p>
+              </div></div>
+            </li>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">04</span><span class="acc__title">Кадровий облік</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Від прийняття на роботу, зокрема під гранти, — до звільнення.</p>
+                <ul class="tags"><li>Трудові договори</li><li>Нарахування зарплати</li><li>Табель робочого часу</li><li>Лікарняні та декретні</li><li>Звіти</li></ul>
+              </div></div>
+            </li>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">05</span><span class="acc__title">Управлінський облік для власника</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Цифри, за якими керують бізнесом: бачите стан компанії й ухвалюєте рішення не навмання.</p>
+                <ul class="tags"><li>P&amp;L</li><li>Cashflow</li><li>Balance</li><li>Звіти для контролю підрозділів</li><li>Аудит бізнес-процесів</li><li>Оптимізація та зростання прибутку</li></ul>
+              </div></div>
+            </li>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">06</span><span class="acc__title">Звітність</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Щомісячні, щоквартальні та щорічні звіти — у податкову, статистику та ПФУ.</p>
+              </div></div>
+            </li>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">07</span><span class="acc__title">Ревізія фінансового відділу</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Перевіримо роботу фінвідділу та бухгалтерського обліку, знайдемо недоліки й порушення.</p>
+              </div></div>
+            </li>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">08</span><span class="acc__title">Оргструктура та документообіг</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Побудуємо організаційну структуру, пропишемо документообіг і точки контролю для власника — під реалії вашої компанії.</p>
+              </div></div>
+            </li>
+            <li class="acc__item">
+              <button class="acc__head" aria-expanded="false"><span class="acc__num">09</span><span class="acc__title">Навчання бухгалтерів і фінансистів</span><span class="acc__icon"></span></button>
+              <div class="acc__body"><div>
+                <p>Підвищення кваліфікації для вашої команди — на практиці, а не лише за законодавством.</p>
+              </div></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Підхід -->
+  <section class="approach" id="approach">
+    <div class="container">
+      <div class="section-head section-head--light reveal">
+        <p class="eyebrow eyebrow--light">Підхід</p>
+        <h2 class="h2">Спершу розуміємо бізнес — потім будуємо облік</h2>
+      </div>
+
+      <div class="steps" data-steps>
+        <div class="steps__line" aria-hidden="true"><i></i></div>
+        <article class="step reveal">
+          <span class="step__dot"></span>
+          <span class="step__num">01</span>
+          <h3>Аналізуємо</h3>
+          <p>Розбираємось, як бізнес працює зараз: операції, документи, люди.</p>
+        </article>
+        <article class="step reveal">
+          <span class="step__dot"></span>
+          <span class="step__num">02</span>
+          <h3>Знаходимо вузькі місця</h3>
+          <p>Реальні процеси показують, де губляться гроші, час і відповідальність.</p>
+        </article>
+        <article class="step reveal">
+          <span class="step__dot"></span>
+          <span class="step__num">03</span>
+          <h3>Будуємо систему</h3>
+          <p>Зручний документообіг і точки контролю — під ваш бізнес, а не з шаблону.</p>
+        </article>
+        <article class="step reveal">
+          <span class="step__dot"></span>
+          <span class="step__num">04</span>
+          <h3>Автоматизуємо</h3>
+          <p>Ефективніша команда й краща комунікація з клієнтами — а отже, більше продажів.</p>
+        </article>
+      </div>
+
+      <p class="approach__quote reveal">Для кожного рішення готуємо фінансові показники та законодавчі норми. <span>Ви отримуєте не проблему, а варіанти.</span></p>
+    </div>
+  </section>
+
+  <!-- Про засновницю -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about__top">
+        <div class="about__photo reveal">
+          <div class="photo-ph">
+            <svg><use href="#mark"/></svg>
+            <span>Фото засновниці</span>
+          </div>
+        </div>
+        <div class="about__intro reveal">
+          <p class="eyebrow">Про засновницю</p>
+          <h2 class="h2">Компанія, яка створилась сама</h2>
+          <p class="about__name">Юлія Кузнецова <span>засновниця Happy Finance</span></p>
+          <blockquote class="about__quote">«Я ніколи не мріяла про свою компанію — думала, що ще рано, треба вчитись. А вона виросла сама: з рекомендацій наших клієнтів».</blockquote>
+          <div class="result">
+            <p class="result__label">Нестачі на складі дистрибуційної компанії, на місяць</p>
+            <p class="result__value"><s>1,5 млн</s> <svg viewBox="0 0 40 20"><path d="M2 10h34m-7-7 7 7-7 7"/></svg> <b>12 тис. грн</b></p>
+            <p class="result__note">Після того як засновниця побудувала фінансовий відділ і систему контролю.</p>
+          </div>
+        </div>
+      </div>
+
+      <ol class="timeline">
+        <li class="reveal">
+          <span class="timeline__tag">Старт</span>
+          <h3>Операторка в «Спецторгу»</h3>
+          <p>Первинні документи, податкові накладні, акти звірки — паралельно з денним навчанням на бухгалтера.</p>
+        </li>
+        <li class="reveal">
+          <span class="timeline__tag">16 філій</span>
+          <h3>Старша бухгалтерка управлінської компанії</h3>
+          <p>Каса, банківські платежі, авансові звіти для всіх філій. Згодом — головна бухгалтерка магазину.</p>
+        </li>
+        <li class="reveal">
+          <span class="timeline__tag">Мережа аптек</span>
+          <h3>Касова дисципліна у «Фоззі Фарм»</h3>
+          <p>Помітила, що помилки виправляти вже пізно, — тож створила навчання й інструкції для фармацевтів, щоб вони не виникали.</p>
+        </li>
+        <li class="reveal">
+          <span class="timeline__tag">50 людей</span>
+          <h3>Бухгалтерка, а потім директорка кав’ярні</h3>
+          <p>Перевела облік із зошитів у 1С. Вивела кондитерський цех на оптові продажі та експорт в Ізраїль.</p>
+        </li>
+        <li class="reveal">
+          <span class="timeline__tag">200+ людей</span>
+          <h3>Фінансова директорка дистрибуційної компанії</h3>
+          <p>Побудувала фінвідділ під час продажу бізнесу, переїзду складу й зміни власників. Знайшла крадіжки, вибудувала систему контролю.</p>
+        </li>
+        <li class="reveal is-now">
+          <span class="timeline__tag">Сьогодні</span>
+          <h3>Happy Finance</h3>
+          <p>Усе почалося з прохання тата вести його бухгалтерію. Далі — рекомендації клієнтів. За 7 років — компанія.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Клієнти -->
+  <section class="clients" id="clients">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Клієнти</p>
+        <h2 class="h2">Кого ми супроводжуємо зараз</h2>
+      </div>
+      <div class="ledger reveal" role="table" aria-label="Клієнти Happy Finance">
+        <div class="ledger__row ledger__row--head" role="row">
+          <span role="columnheader">Бізнес</span><span role="columnheader">Форма</span><span role="columnheader">Команда</span><span role="columnheader">Що ведемо</span>
+        </div>
+        <div class="ledger__row" role="row"><span role="cell">Виробництво</span><span role="cell">ТОВ</span><span role="cell">50 осіб</span><span role="cell">Бухгалтерський і управлінський облік повністю</span></div>
+        <div class="ledger__row" role="row"><span role="cell">Агровиробництво</span><span role="cell">ТОВ</span><span role="cell">до 10 осіб</span><span role="cell">Бухгалтерський супровід</span></div>
+        <div class="ledger__row" role="row"><span role="cell">Автошкола</span><span role="cell">ТОВ</span><span role="cell">до 20 осіб</span><span role="cell">Бухгалтерський супровід</span></div>
+        <div class="ledger__row" role="row"><span role="cell">Імпорт товарів</span><span role="cell">ТОВ</span><span role="cell">до 10 осіб</span><span role="cell">Бухгалтерський супровід</span></div>
+        <div class="ledger__row" role="row"><span role="cell">Послуги</span><span role="cell">ФОП з ПДВ</span><span role="cell">—</span><span role="cell">Супровід з ПДВ</span></div>
+        <div class="ledger__row ledger__row--total" role="row"><span role="cell">Послуги</span><span role="cell">ФОП</span><span role="cell">20 клієнтів</span><span role="cell">Щомісячний супровід</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Цінності -->
+  <section class="values" id="values">
+    <svg class="values__notch" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V10C1080 10 860 18 720 86C580 18 360 10 0 10Z"/></svg>
+    <div class="container">
+      <div class="values__head reveal">
+        <h2 class="h2">У що ми віримо</h2>
+        <svg class="values__mark"><use href="#mark"/></svg>
+      </div>
+      <ul class="values__list">
+        <li class="reveal"><h3>Любов до людей і бізнесу</h3><p>Для кожного власника підбираємо зручний документообіг і точки контролю — і допомагаємо керувати бізнесом.</p></li>
+        <li class="reveal"><h3>Не приносимо проблем</h3><p>У будь-якій ситуації приходимо з варіантами рішень, а не з поганими новинами.</p></li>
+        <li class="reveal"><h3>Неможливих ситуацій немає</h3><p>Під кожен запит шукаємо всі можливі варіанти — з цифрами та нормами законодавства.</p></li>
+        <li class="reveal"><h3>Добре працює той, хто добре відпочиває</h3><p>Наша команда не працює у вихідні й після 17:00. Тому все робиться якісно і вчасно — у робочий час.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Квіз і заявка -->
+  <section class="contact" id="contact">
+    <svg class="contact__notch" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V10C1080 10 860 18 720 86C580 18 360 10 0 10Z"/></svg>
+    <div class="container contact__inner">
+      <div class="contact__intro reveal">
+        <p class="eyebrow eyebrow--light" id="quiz">Підбір супроводу</p>
+        <h2 class="h2">Розкажіть про бізнес — запропонуємо рішення</h2>
+        <p class="contact__lead">Три короткі питання — і ви побачите, що саме вам потрібно. Вартість розраховуємо після знайомства з бізнесом: вона залежить від обсягу операцій і команди.</p>
+        <a href="#" class="link-arrow link-arrow--light" data-contact="telegram">Або одразу напишіть у Telegram <svg viewBox="0 0 20 20"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></a>
+      </div>
+
+      <div class="quiz reveal" data-quiz>
+        <div class="quiz__progress"><i></i></div>
+
+        <fieldset class="quiz__step is-active" data-step="1">
+          <legend>Хто ви?</legend>
+          <label class="opt"><input type="radio" name="q-type" value="ФОП"><span>ФОП</span></label>
+          <label class="opt"><input type="radio" name="q-type" value="ТОВ"><span>ТОВ</span></label>
+          <label class="opt"><input type="radio" name="q-type" value="Ще не зареєстровані"><span>Ще не зареєстровані</span></label>
+        </fieldset>
+
+        <fieldset class="quiz__step" data-step="2">
+          <legend>Чи є у вас працівники?</legend>
+          <label class="opt"><input type="radio" name="q-staff" value="Так"><span>Так</span></label>
+          <label class="opt"><input type="radio" name="q-staff" value="Ні"><span>Ні</span></label>
+          <label class="opt"><input type="radio" name="q-staff" value="Плануємо"><span>Плануємо наймати</span></label>
+        </fieldset>
+
+        <fieldset class="quiz__step" data-step="3">
+          <legend>Що найважливіше зараз? <small>Можна кілька</small></legend>
+          <label class="opt"><input type="checkbox" name="q-need" value="taxes"><span>Звіти й податки без стресу</span></label>
+          <label class="opt"><input type="checkbox" name="q-need" value="docs"><span>Порядок у документах</span></label>
+          <label class="opt"><input type="checkbox" name="q-need" value="numbers"><span>Бачити цифри бізнесу</span></label>
+          <label class="opt"><input type="checkbox" name="q-need" value="bank"><span>Пройти фінмоніторинг банку</span></label>
+          <label class="opt"><input type="checkbox" name="q-need" value="close"><span>Закрити або змінити ФОП</span></label>
+          <button type="button" class="btn btn--accent quiz__next" data-finish disabled>Показати рекомендації</button>
+        </fieldset>
+
+        <div class="quiz__step quiz__result" data-step="4">
+          <p class="quiz__result-title">Вам підійде:</p>
+          <ul class="quiz__recs" data-recs></ul>
+
+          <form class="form" name="consult" method="POST" data-netlify="true" netlify-honeypot="company" data-form>
+            <input type="hidden" name="form-name" value="consult">
+            <input type="hidden" name="quiz" data-quiz-summary>
+            <p hidden><label>Не заповнюйте: <input name="company"></label></p>
+            <div class="form__row">
+              <label class="field"><span>Ім’я</span><input name="name" required autocomplete="name"></label>
+              <label class="field"><span>Телефон або Telegram</span><input name="contact" required autocomplete="tel"></label>
+            </div>
+            <button class="btn btn--accent btn--block" type="submit">Отримати консультацію</button>
+            <p class="form__hint">Зв’яжемось у робочий час — у будні до 17:00.</p>
+          </form>
+
+          <div class="form__done" data-done hidden>
+            <svg viewBox="0 0 20 20"><path d="m5 10.5 3.2 3L15 7"/></svg>
+            <p><b>Дякуємо!</b> Ми отримали заявку й напишемо вам найближчим робочим часом.</p>
+          </div>
+          <button type="button" class="quiz__restart" data-restart>Пройти ще раз</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a href="#top" class="logo logo--light">
+        <svg class="logo__mark"><use href="#mark"/></svg>
+        <span class="logo__text">Happy<br>Finance</span>
+      </a>
+      <p>Фінансово-бухгалтерський супровід бізнесу. Кропивницький.</p>
+    </div>
+    <nav class="footer__nav" aria-label="Меню в підвалі">
+      <a href="#services">Послуги</a>
+      <a href="#approach">Підхід</a>
+      <a href="#about">Про засновницю</a>
+      <a href="#clients">Клієнти</a>
+    </nav>
+    <div class="footer__contacts">
+      <a href="tel:+380000000000" data-contact="phone">+380 (00) 000 00 00</a>
+      <a href="#" data-contact="telegram">Telegram</a>
+      <a href="#" data-contact="instagram">Instagram</a>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© 2026 Happy Finance</span>
+    <span>Пн–Пт, до 17:00</span>
+  </div>
+</footer>
+
+<script src="js/main.js?v=1" defer></script>
+</body>
+</html>

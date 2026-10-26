@@ -1,6 +1,16 @@
 // Happy Finance — інтерактив сторінки.
 document.documentElement.classList.add('js');
 
+/* ---------- Поява першого екрана: після завантаження шрифту, щоб текст не стрибав ---------- */
+const startHero = () => {
+  if (document.documentElement.classList.contains('is-ready')) return;
+  document.documentElement.classList.add('is-ready');
+  document.querySelector('.hero [data-stamp]')?.classList.add('is-stamping');
+};
+(document.fonts ? Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 900))]) : Promise.resolve())
+  .then(startHero);
+setTimeout(startHero, 1500); // запасний варіант, якщо шрифт вантажиться надто довго
+
 // Контакти клієнтки: поки невідомі, вписати, коли надішле Дмитро.
 const CONTACTS = {
   phone: '',     // '+380XXXXXXXXX'
@@ -37,7 +47,9 @@ document.querySelectorAll('[data-lead-box]').forEach((box) => {
       });
       if (!res.ok) throw new Error(res.status);
       box.querySelector('[data-form-wrap]').hidden = true;
-      box.querySelector('[data-done]').hidden = false;
+      const done = box.querySelector('[data-done]');
+      done.hidden = false;
+      done.querySelector('[data-stamp]')?.classList.add('is-stamping');
     } catch {
       btn.disabled = false;
       hint.textContent = 'Не вдалося надіслати. Спробуйте ще раз за хвилину.';
@@ -45,6 +57,16 @@ document.querySelectorAll('[data-lead-box]').forEach((box) => {
     }
   });
 });
+
+/* ---------- Мобільне меню ---------- */
+const burger = document.querySelector('[data-burger]');
+const setMenu = (open) => {
+  document.body.classList.toggle('menu-open', open);
+  burger.setAttribute('aria-expanded', String(open));
+};
+burger.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+document.querySelectorAll('.menu a, .menu [data-lead]').forEach((el) => el.addEventListener('click', () => setMenu(false)));
+window.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
 /* ---------- Контакти: посилання й тексти з CONTACTS; поки порожньо — ведуть до форми ---------- */
 const finalName = document.querySelector('.case__form input[name="name"]');
@@ -165,7 +187,7 @@ function onScroll() {
 
   // Блок «Правила»: на десктопі годинник іде разом зі скролом, на мобільному — стрибає до правила в центрі екрана.
   if (day) {
-    if (window.innerWidth > 760 && !reduced) {
+    if (window.innerWidth > 1080 && !reduced) {
       const r = dayTrack.getBoundingClientRect();
       const p = clamp(-r.top / (dayTrack.offsetHeight - vh) / 0.88);
       setDay(540 + p * 480);

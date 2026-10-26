@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=10">
+  <link rel="stylesheet" href="css/style.css?v=14">
 </head>
 <body>
 
@@ -28,6 +28,14 @@
   </symbol>
   <symbol id="tg" viewBox="0 0 24 24" fill="currentColor">
     <path d="M21.6 3.2 2.3 10.6c-.9.4-.9 1.6.1 1.9l4.8 1.5 1.9 5.8c.3.8 1.3 1 1.9.4l2.6-2.5 4.8 3.6c.7.5 1.7.1 1.9-.8l3.1-15c.2-1-.8-1.9-1.8-1.5ZM9.8 14.4l-.4 4-1.6-5 9.9-6.3-7.9 7.3Z"/>
+  </symbol>
+  <symbol id="stamper" viewBox="0 0 120 160">
+    <ellipse cx="60" cy="22" rx="21" ry="19" fill="#102662"/>
+    <path d="M51 36h18l3 46H48z" fill="#0B1B47"/>
+    <rect x="34" y="80" width="52" height="11" rx="5.5" fill="#102662"/>
+    <rect x="14" y="90" width="92" height="40" rx="9" fill="#1A3373"/>
+    <use href="#mark" x="46" y="97" width="28" height="28" color="#FFFFFF" opacity=".9"/>
+    <rect x="18" y="129" width="84" height="13" rx="3" fill="#FB6835"/>
   </symbol>
   <symbol id="arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <path d="M4 10h12m-5-5 5 5-5 5"/>
@@ -45,7 +53,22 @@
       <a href="#services">Послуги</a>
       <a href="#about">Про нас</a>
     </nav>
-    <button class="btn btn--accent btn--sm" data-lead>Залишити заявку</button>
+    <button class="btn btn--accent btn--sm header__cta" data-lead>Залишити заявку</button>
+    <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="menu" data-burger><span></span><span></span></button>
+  </div>
+  <div class="menu" id="menu" data-menu>
+    <nav class="container menu__nav" aria-label="Мобільне меню">
+      <a href="#pains">Чим допомагаємо</a>
+      <a href="#services">Послуги</a>
+      <a href="#about">Про засновницю</a>
+      <a href="#clients">Клієнти</a>
+      <a href="#values">Як ми працюємо</a>
+      <a href="#contact">Контакти</a>
+    </nav>
+    <div class="container menu__foot">
+      <button class="btn btn--accent btn--block btn--lg" data-lead>Залишити заявку</button>
+      <a class="btn btn--ghost btn--block btn--lg" href="#" data-contact="telegram">Написати в Telegram</a>
+    </div>
   </div>
 </header>
 
@@ -55,31 +78,31 @@
   <section class="hero">
     <div class="container hero__inner">
       <div class="hero__content">
-        <p class="eyebrow"><span class="eyebrow__dot"></span>Фінансово-бухгалтерський супровід ФОП і ТОВ</p>
-        <h1 class="hero__title">Тримаємо ваш бізнес <span class="hero__accent">у&nbsp;порядку<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14C60 6 140 4 297 9"/></svg></span></h1>
-        <p class="hero__lead">Ведемо бухгалтерію, податки, кадри й управлінський облік — щоб ви бачили цифри свого бізнесу і спокійно займались справою.</p>
-        <div class="hero__cta">
+        <p class="eyebrow hero__eyebrow" data-in style="--t:0s"><span class="eyebrow__dot"></span>Бухгалтерський супровід ФОП і ТОВ</p>
+        <h1 class="hero__title"><span class="hw" data-in style="--t:.08s">Тримаємо</span> <span class="hw" data-in style="--t:.15s">ваш</span> <span class="hw" data-in style="--t:.22s">бізнес</span> <span class="hw" data-in style="--t:.3s"><span class="hero__accent">у&nbsp;порядку<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 14C60 6 140 4 297 9"/></svg></span></span></h1>
+        <p class="hero__lead" data-in style="--t:.42s">Ведемо бухгалтерію, податки, кадри й управлінський облік — щоб ви бачили цифри свого бізнесу і спокійно займались справою.</p>
+        <div class="hero__cta" data-in style="--t:.52s">
           <button class="btn btn--accent btn--lg" data-lead>Залишити заявку <svg class="btn__arrow"><use href="#arrow"/></svg></button>
           <a class="btn btn--ghost btn--lg" href="#" data-contact="telegram">Написати в Telegram</a>
         </div>
-        <p class="hero__micro">Займе 30 секунд. Перша розмова ні до чого не зобов’язує.</p>
-        <ul class="hero__facts">
-          <li><b>7 років</b> на ринку</li>
-          <li><b>25+</b> бізнесів на супроводі</li>
-          <li>Клієнти приходять <b>за рекомендаціями</b></li>
+        <p class="hero__micro" data-in style="--t:.6s">Займе 30 секунд. Перша розмова ні до чого не зобов’язує.</p>
+        <ul class="hero__facts" data-in style="--t:.68s">
+          <li><b>7 років</b><span>на ринку</span></li>
+          <li><b>25+</b><span>бізнесів на супроводі</span></li>
+          <li><b>200+</b><span>людей у командах засновниці</span></li>
         </ul>
       </div>
 
       <div class="stack" aria-hidden="true" data-stack>
-        <div class="sheet sheet--3">
+        <div class="sheet sheet--3" data-in style="--t:.2s; --r:-5deg">
           <p class="sheet__kicker">Звіт P&amp;L · ІІІ квартал</p>
           <div class="sheet__bars"><i style="--h:40%"></i><i style="--h:55%"></i><i style="--h:48%"></i><i style="--h:72%"></i><i style="--h:66%"></i><i style="--h:88%"></i></div>
         </div>
-        <div class="sheet sheet--2">
+        <div class="sheet sheet--2" data-in style="--t:.34s; --r:6deg">
           <p class="sheet__kicker">Трудовий договір № 14</p>
           <span class="sheet__line"></span><span class="sheet__line"></span><span class="sheet__line sheet__line--short"></span>
         </div>
-        <div class="sheet sheet--1">
+        <div class="sheet sheet--1" data-in style="--t:.48s; --r:-3deg">
           <div class="sheet__head">
             <div>
               <p class="sheet__kicker">Книга обліку доходів</p>
@@ -98,16 +121,16 @@
             <span>Ліміт доходу</span><span>9,6%</span>
             <i><b style="--w:9.6%"></b></i>
           </div>
-          <div class="stamp">
-            <svg viewBox="0 0 120 120">
+          <div class="stamp" data-stamp style="--d:1.35s">
+            <div class="stamp__print"><svg viewBox="0 0 120 120">
               <circle cx="60" cy="60" r="56"/>
               <circle cx="60" cy="60" r="34"/>
               <text><textPath href="#stamp-circle">HAPPY FINANCE · ПЕРЕВІРЕНО · </textPath></text>
-            </svg>
-            <span>OK</span>
+            </svg><span>OK</span></div>
+            <svg class="stamper" aria-hidden="true"><use href="#stamper"/></svg>
           </div>
         </div>
-        <svg class="clip" viewBox="0 0 46 120" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="clip" data-in style="--t:1s" viewBox="0 0 46 120" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="16" height="100" rx="8"/>
           <rect x="28" y="2" width="16" height="100" rx="8"/>
           <path d="M18 76C18 40 28 38 28 60"/>
@@ -411,14 +434,14 @@
             </form>
           </div>
           <div class="lead__done" data-done hidden>
-            <div class="stamp stamp--done">
-              <svg viewBox="0 0 120 120">
+            <div class="stamp stamp--done" data-stamp>
+            <div class="stamp__print"><svg viewBox="0 0 120 120">
                 <circle cx="60" cy="60" r="56"/>
                 <circle cx="60" cy="60" r="34"/>
                 <text><textPath href="#stamp-circle">HAPPY FINANCE · ПРИЙНЯТО · </textPath></text>
-              </svg>
-              <span>OK</span>
-            </div>
+              </svg><span>OK</span></div>
+            <svg class="stamper" aria-hidden="true"><use href="#stamper"/></svg>
+          </div>
             <h3 class="lead__title">Справу № 26 відкрито</h3>
             <p class="lead__text">Дякуємо! Зв’яжемося з вами найближчим робочим часом.</p>
           </div>
@@ -486,19 +509,19 @@
   </div>
 
   <div class="lead__done" data-done hidden>
-    <div class="stamp stamp--done">
-      <svg viewBox="0 0 120 120">
+    <div class="stamp stamp--done" data-stamp>
+            <div class="stamp__print"><svg viewBox="0 0 120 120">
         <circle cx="60" cy="60" r="56"/>
         <circle cx="60" cy="60" r="34"/>
         <text><textPath href="#stamp-circle">HAPPY FINANCE · ПРИЙНЯТО · </textPath></text>
-      </svg>
-      <span>OK</span>
-    </div>
+      </svg><span>OK</span></div>
+            <svg class="stamper" aria-hidden="true"><use href="#stamper"/></svg>
+          </div>
     <h2 class="lead__title">Дякуємо! Заявку прийнято</h2>
     <p class="lead__text">Зв’яжемося з вами найближчим робочим часом.</p>
   </div>
 </dialog>
 
-<script src="js/main.js?v=10" defer></script>
+<script src="js/main.js?v=14" defer></script>
 </body>
 </html>

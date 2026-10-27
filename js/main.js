@@ -31,11 +31,11 @@ function countFacts() {
   .then(startHero);
 setTimeout(startHero, 1500); // запасний варіант, якщо шрифт вантажиться надто довго
 
-// Контакти клієнтки: поки невідомі, вписати, коли надішле Дмитро.
+// Контакти Марії Панченко (надіслав Дмитро 27.10).
 const CONTACTS = {
-  phone: '',     // '+380XXXXXXXXX'
-  telegram: '',  // 'https://t.me/username'
-  instagram: '', // 'https://instagram.com/username'
+  phone: '+380663568040',
+  telegram: 'https://t.me/MariiaPanchenko_ua',
+  instagram: 'https://instagram.com/Mariia_Panchenko_ua',
 };
 
 const clamp = (v, min = 0, max = 1) => Math.min(max, Math.max(min, v));
@@ -96,8 +96,6 @@ document.querySelectorAll('[data-contact]').forEach((a) => {
   if (value) {
     a.href = kind === 'phone' ? `tel:${value.replace(/[^+\d]/g, '')}` : value;
     if (kind !== 'phone') { a.target = '_blank'; a.rel = 'noopener'; }
-    if (a.dataset.fill === 'phone') a.textContent = value;
-    if (a.dataset.fill === 'telegram') a.textContent = `@${value.split('/').pop()}`;
     return;
   }
   a.addEventListener('click', (e) => {

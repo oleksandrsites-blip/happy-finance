@@ -431,8 +431,9 @@ body.menu-open { overflow: hidden; }
   letter-spacing: .08em;
   text-transform: uppercase;
 }
-.idphoto__img svg { width: 56px; height: 56px; }
-.idphoto__img span { text-align: center; padding: 0 8px; }
+.idphoto__img { position: relative; background: linear-gradient(160deg, #EDE8E0, #DCD3C7); }
+.idphoto__img b { font-size: clamp(64px, 6vw, 92px); font-weight: 600; letter-spacing: -.06em; color: var(--navy); }
+.idphoto__img svg { position: absolute; right: 12px; bottom: 12px; width: 30px; height: 30px; color: var(--navy); opacity: .5; }
 .clip--photo { left: 26px; top: -34px; width: 34px; height: 88px; transform: rotate(3deg); }
 .about__name { font-size: 26px; font-weight: 600; letter-spacing: -.03em; color: var(--navy); }
 .about__role { margin-top: 4px; font-size: 15px; color: var(--muted); }
@@ -442,9 +443,9 @@ body.menu-open { overflow: hidden; }
 .book { background: var(--white); border-radius: 8px; box-shadow: var(--shadow-sheet); padding: 8px clamp(20px, 3vw, 36px); }
 .book__title { display: flex; justify-content: space-between; padding: 22px 0 6px; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--navy); }
 .book__title span { font-weight: 400; color: var(--muted); letter-spacing: .06em; }
-.book__row { display: grid; grid-template-columns: 40px 1fr 1.7fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.book__row { display: grid; grid-template-columns: 82px 1fr 1.7fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
 .book__row:last-child { border-bottom: 0; }
-.book__row span:first-child { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.book__row span:first-child { font-size: 14px; font-weight: 600; color: var(--navy); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .book__row span:nth-child(2) { font-size: 15px; color: var(--navy); font-weight: 500; }
 .book__row span:nth-child(3) { font-size: 15px; color: var(--muted); }
 .book__row b { color: var(--text); font-weight: 600; }
@@ -454,11 +455,60 @@ body.menu-open { overflow: hidden; }
 .book__row.is-now { position: relative; }
 .book__row.is-now::after { content: ""; position: absolute; left: -12px; top: 18px; bottom: 18px; width: 3px; border-radius: 3px; background: var(--orange); }
 
-.about__result { display: flex; justify-content: space-between; align-items: center; gap: 16px 32px; flex-wrap: wrap; margin-top: 28px; padding: 26px 30px; border-radius: 8px; background: var(--navy); color: var(--white); }
-.about__result-label { font-size: 14px; color: rgba(255, 255, 255, .65); max-width: 240px; }
-.about__result-value { display: flex; align-items: center; gap: 14px; font-size: clamp(26px, 2.8vw, 38px); font-weight: 600; letter-spacing: -.03em; line-height: 1; }
+.about__result { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; margin-top: 28px; padding: 26px 30px; border-radius: 8px; background: var(--navy); color: var(--white); }
+.about__result > div + div { padding-left: 32px; border-left: 1px solid rgba(255, 255, 255, .16); }
+.about__result-label { font-size: 14px; color: rgba(255, 255, 255, .65); margin-bottom: 10px; }
+.about__result-value span { font-size: 14px; font-weight: 400; letter-spacing: 0; line-height: 1.35; color: rgba(255, 255, 255, .75); white-space: normal; max-width: 150px; }
+.about__result-value b { color: var(--white); }
+.about__result-value b:first-child { color: var(--orange); }
+.about__result-value { display: flex; align-items: center; gap: 12px; font-size: clamp(24px, 2.3vw, 34px); white-space: nowrap; font-weight: 600; letter-spacing: -.03em; line-height: 1; }
 .about__result-value s { color: rgba(255, 255, 255, .5); font-weight: 400; text-decoration-color: var(--orange); text-decoration-thickness: 2px; }
 .about__result-value svg { width: 34px; height: 18px; fill: none; stroke: var(--orange); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- Команда: бейджі на помаранчевих стрічках (як у брендбуку) ---------- */
+.team { position: relative; padding: var(--section) 0 calc(var(--section) + 20px); background: var(--navy); color: var(--white); overflow: hidden; }
+.team::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+.team__head { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 80px; align-items: end; margin-bottom: 8px; }
+.team .h2 { color: var(--white); }
+.team__lead { font-size: 18px; color: rgba(255, 255, 255, .7); max-width: 480px; }
+.badges { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: start; }
+.badge { position: relative; display: flex; flex-direction: column; align-items: center; transform-origin: 50% 0; animation: sway calc(6s + var(--i) * .9s) ease-in-out calc(var(--i) * -1.3s) infinite alternate; }
+.badge:nth-child(even) { padding-top: 34px; }
+@keyframes sway { from { rotate: -1.4deg; } to { rotate: 1.4deg; } }
+.badge__strap { position: relative; width: 26px; height: 110px; margin-bottom: -6px; background: linear-gradient(90deg, var(--orange-deep), var(--orange) 40%, var(--orange) 60%, var(--orange-deep)); }
+.badge__strap::after { content: ""; position: absolute; left: 50%; bottom: -4px; width: 18px; height: 22px; margin-left: -9px; border-radius: 4px; background: #C9CCD6; box-shadow: inset 0 -3px 0 rgba(0, 0, 0, .12); }
+.badge__card {
+  position: relative;
+  width: 100%;
+  max-width: 290px;
+  padding: 0 24px 26px;
+  border-radius: 16px;
+  background: var(--white);
+  color: var(--text);
+  box-shadow: 0 40px 60px -30px rgba(0, 0, 0, .6);
+  transition: translate .45s var(--ease), box-shadow .45s var(--ease);
+}
+.badge__card::before { content: ""; position: absolute; top: 14px; left: 50%; width: 44px; height: 8px; margin-left: -22px; border-radius: 8px; background: var(--paper); box-shadow: inset 0 1px 2px rgba(16, 38, 98, .2); }
+.badge:hover { animation-play-state: paused; }
+.badge:hover .badge__card { translate: 0 -6px; box-shadow: 0 50px 70px -30px rgba(0, 0, 0, .7); }
+.badge__top { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 34px 0 16px; margin: 0 -24px 22px; border-bottom: 1px dashed var(--line); font-size: 10.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--navy); }
+.badge__logo { width: 18px; height: 18px; color: var(--navy); }
+.badge__initials { display: grid; place-items: center; width: 76px; height: 76px; margin: 0 0 18px; border-radius: 50%; background: var(--paper); font-size: 28px; font-weight: 600; letter-spacing: -.04em; color: var(--navy); }
+.badge:nth-child(4n + 1) .badge__initials { background: #F1E6DC; }
+.badge__name { font-size: 22px; line-height: 1.1; font-weight: 600; letter-spacing: -.03em; color: var(--navy); }
+.badge__role { margin-top: 6px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--orange-deep); }
+.badge__exp { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14.5px; line-height: 1.5; color: var(--muted); }
+.badge__fact { margin-top: 14px; font-size: 14px; line-height: 1.45; color: var(--text); }
+.badge__fact span { display: block; margin-bottom: 4px; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 
 /* ---------- Клієнти: полиця з папками ---------- */
 .clients { padding: var(--section) 0; background: var(--white); }
@@ -655,6 +705,9 @@ body.menu-open { overflow: hidden; }
   .pains__inner { grid-template-columns: 1fr; }
   .pains__head { position: static; }
   .clients__top { grid-template-columns: 1fr; }
+  .team__head { grid-template-columns: 1fr; }
+  .badges { grid-template-columns: repeat(2, 1fr); gap: 0 24px; }
+  .badge:nth-child(even) { padding-top: 34px; }
   .final__inner { grid-template-columns: 1fr; }
   .about__inner { grid-template-columns: 1fr; grid-template-areas: "head" "card" "body"; }
   .about__card { position: static; display: grid; grid-template-columns: 200px 1fr; grid-template-areas: "photo name" "photo role" "photo quote"; gap: 0 32px; align-items: start; margin: 32px 0 40px; }
@@ -738,8 +791,8 @@ body.menu-open { overflow: hidden; }
 
   .about__card { grid-template-columns: 112px 1fr; gap: 0 18px; margin: 28px 0 32px; }
   .idphoto { padding: 7px 7px 22px; margin: 18px 0 0 4px; }
-  .idphoto__img { font-size: 9px; gap: 8px; }
-  .idphoto__img svg { width: 32px; height: 32px; }
+  .idphoto__img b { font-size: 40px; }
+  .idphoto__img svg { width: 18px; height: 18px; right: 6px; bottom: 6px; }
   .clip--photo { left: 12px; width: 22px; height: 56px; top: -22px; }
   .about__name { font-size: 21px; margin-top: 0; align-self: end; }
   .about__role { font-size: 14px; }
@@ -749,12 +802,23 @@ body.menu-open { overflow: hidden; }
   .book { padding: 4px 18px; }
   .book__title { padding-top: 18px; }
   .book__row--head { display: none; }
-  .book__row { grid-template-columns: 26px 1fr; gap: 4px 10px; padding: 16px 0; }
-  .book__row span:nth-child(3) { grid-column: 2; }
+  .book__row { grid-template-columns: 1fr; gap: 4px; padding: 16px 0; }
+  .book__row span:first-child { font-size: 13px; color: var(--orange-deep); }
   .book__row.is-now::after { left: -10px; }
-  .about__result { padding: 20px; gap: 10px; }
+  .about__result { grid-template-columns: 1fr; padding: 20px; gap: 18px; }
+  .about__result > div + div { padding: 18px 0 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, .16); }
   .about__result-value { font-size: 26px; }
 
+  .team__lead { font-size: 16.5px; }
+  .badges { display: flex; gap: 14px; margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter) 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 var(--gutter); scrollbar-width: none; }
+  .badges::-webkit-scrollbar { display: none; }
+  .badge { flex: 0 0 78%; scroll-snap-align: start; animation: none; }
+  .badge:nth-child(even) { padding-top: 0; }
+  .badge__strap { height: 64px; width: 22px; }
+  .badge__card { max-width: none; padding: 0 20px 22px; }
+  .badge__top { margin: 0 -20px 18px; }
+  .badge__initials { width: 64px; height: 64px; font-size: 24px; }
+  .badge__name { font-size: 20px; }
   .clients__stat b { font-size: 56px; }
   .clients__stat p { font-size: 15px; }
   .shelf { flex-direction: column; height: auto; gap: 6px; }

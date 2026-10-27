@@ -187,7 +187,8 @@ body.menu-open { overflow: hidden; }
 .hero__facts { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 0; padding-top: 24px; border-top: 1px solid var(--line); max-width: 620px; }
 .hero__facts li { display: flex; flex-direction: column; gap: 4px; padding-right: 28px; }
 .hero__facts li + li { padding-left: 28px; border-left: 1px solid var(--line); }
-.hero__facts b { font-size: 22px; line-height: 1.1; font-weight: 600; letter-spacing: -.03em; color: var(--navy); }
+.hero__facts b { font-size: 28px; line-height: 1.05; font-weight: 600; letter-spacing: -.03em; color: var(--navy); }
+.hero__facts b i { display: inline-block; font-style: normal; font-variant-numeric: tabular-nums; }
 .hero__facts span { font-size: 13px; line-height: 1.35; color: var(--muted); max-width: 170px; }
 
 /* Стос документів зі скріпкою. --k зменшує розліт аркушів на малих екранах. */
@@ -693,7 +694,7 @@ body.menu-open { overflow: hidden; }
   .hero__facts { grid-template-columns: repeat(3, 1fr); padding-top: 20px; }
   .hero__facts li { padding-right: 12px; }
   .hero__facts li + li { padding-left: 12px; }
-  .hero__facts b { font-size: 20px; }
+  .hero__facts b { font-size: 23px; }
   .hero__facts span { font-size: 12px; }
 
   .stack { --k: .36; width: min(320px, 82%); aspect-ratio: 440 / 590; margin: 44px auto 12px; }
@@ -808,7 +809,7 @@ body.menu-open { overflow: hidden; }
   .logo__text { font-size: 11px; }
   .logo { gap: 8px; }
   .hero__title { font-size: 38px; }
-  .hero__facts b { font-size: 18px; }
+  .hero__facts b { font-size: 20px; }
   .folder__tab { font-size: 12.5px; }
   .clock svg { width: 108px; }
   .clock__digital span { font-size: 38px; }

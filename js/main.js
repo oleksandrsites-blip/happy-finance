@@ -6,7 +6,27 @@ const startHero = () => {
   if (document.documentElement.classList.contains('is-ready')) return;
   document.documentElement.classList.add('is-ready');
   document.querySelector('.hero [data-stamp]')?.classList.add('is-stamping');
+  countFacts();
 };
+
+// Цифри під першим екраном м’яко нараховуються, коли з’являється їхній рядок.
+// Ширину фіксуємо за кінцевим значенням, щоб сусідні показники не смикались.
+function countFacts() {
+  if (reduced) return;
+  document.querySelectorAll('.hero [data-count]').forEach((el) => {
+    const target = +el.dataset.count;
+    el.style.minWidth = `${el.offsetWidth}px`;
+    el.textContent = '0';
+    const start = performance.now() + 750;
+    const dur = 1600;
+    const tick = (now) => {
+      const t = clamp((now - start) / dur);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - t, 4)));
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+}
 (document.fonts ? Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 900))]) : Promise.resolve())
   .then(startHero);
 setTimeout(startHero, 1500); // запасний варіант, якщо шрифт вантажиться надто довго

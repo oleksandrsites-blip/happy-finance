@@ -480,7 +480,7 @@ body.menu-open { overflow: hidden; }
 .team .h2 { color: var(--white); }
 .team__lead { font-size: 18px; color: rgba(255, 255, 255, .7); max-width: 480px; }
 .badges { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: start; }
-.badge { position: relative; display: flex; flex-direction: column; align-items: center; transform-origin: 50% 0; animation: sway calc(6s + var(--i) * .9s) ease-in-out calc(var(--i) * -1.3s) infinite alternate; }
+.badge { position: relative; display: flex; flex-direction: column; align-items: center; transform-origin: 50% 0; transform: rotate(var(--swing, 0deg)); animation: sway calc(6s + var(--i) * .9s) ease-in-out calc(var(--i) * -1.3s) infinite alternate; }
 .badge:nth-child(even) { padding-top: 34px; }
 @keyframes sway { from { rotate: -1.4deg; } to { rotate: 1.4deg; } }
 .badge__strap { position: relative; width: 26px; height: 110px; margin-bottom: -6px; background: linear-gradient(90deg, var(--orange-deep), var(--orange) 40%, var(--orange) 60%, var(--orange-deep)); }
@@ -497,7 +497,6 @@ body.menu-open { overflow: hidden; }
   transition: translate .45s var(--ease), box-shadow .45s var(--ease);
 }
 .badge__card::before { content: ""; position: absolute; top: 14px; left: 50%; width: 44px; height: 8px; margin-left: -22px; border-radius: 8px; background: var(--paper); box-shadow: inset 0 1px 2px rgba(16, 38, 98, .2); }
-.badge:hover { animation-play-state: paused; }
 .badge:hover .badge__card { translate: 0 -6px; box-shadow: 0 50px 70px -30px rgba(0, 0, 0, .7); }
 .badge__top { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 34px 0 16px; margin: 0 -24px 22px; border-bottom: 1px dashed var(--line); font-size: 10.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--navy); }
 .badge__logo { width: 18px; height: 18px; color: var(--navy); }

@@ -124,6 +124,47 @@ folderTabs.forEach((tab) => tab.addEventListener('click', () => {
   });
 }));
 
+/* ---------- Команда: бейджі гойдаються, коли їх зачіпає курсор (лише десктоп) ---------- */
+// Кожен бейдж — маятник із пружиною: рух миші дає поштовх, далі він сам загасає.
+const badgeEls = [...document.querySelectorAll('.badge')];
+if (badgeEls.length && !reduced && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  const state = badgeEls.map(() => ({ a: 0, v: 0 }));
+  let running = false;
+  let last = 0;
+  let lastX = null;
+  let lastT = 0;
+
+  const step = (now) => {
+    const dt = Math.min((now - last) / 1000, 0.032);
+    last = now;
+    let moving = false;
+    state.forEach((st, i) => {
+      st.v += (-55 * st.a - 2.6 * st.v) * dt; // пружина + загасання
+      st.a = clamp(st.a + st.v * dt, -12, 12);
+      if (Math.abs(st.a) > 0.02 || Math.abs(st.v) > 0.05) moving = true;
+      else { st.a = 0; st.v = 0; }
+      badgeEls[i].style.setProperty('--swing', `${st.a.toFixed(2)}deg`);
+    });
+    running = moving;
+    if (moving) requestAnimationFrame(step);
+  };
+
+  document.querySelector('[data-badges]').addEventListener('pointermove', (e) => {
+    const now = performance.now();
+    if (lastX !== null && now - lastT < 100) {
+      const vx = clamp((e.clientX - lastX) / Math.max(now - lastT, 1), -3, 3); // px/мс
+      const i = badgeEls.indexOf(e.target.closest('.badge'));
+      if (i > -1) {
+        // Рух вправо штовхає низ бейджа вправо, тобто поворот проти годинникової.
+        state[i].v -= vx * 16;
+        if (!running) { running = true; last = now; requestAnimationFrame(step); }
+      }
+    }
+    lastX = e.clientX;
+    lastT = now;
+  });
+}
+
 /* ---------- Клієнти: полиця з папками, відкриваються лише по кліку ---------- */
 const spines = [...document.querySelectorAll('.spine')];
 spines.forEach((spine) => spine.querySelector('.spine__btn').addEventListener('click', () => {

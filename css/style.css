@@ -432,8 +432,7 @@ body.menu-open { overflow: hidden; }
   text-transform: uppercase;
 }
 .idphoto__img { position: relative; background: linear-gradient(160deg, #EDE8E0, #DCD3C7); }
-.idphoto__img b { font-size: clamp(64px, 6vw, 92px); font-weight: 600; letter-spacing: -.06em; color: var(--navy); }
-.idphoto__img svg { position: absolute; right: 12px; bottom: 12px; width: 30px; height: 30px; color: var(--navy); opacity: .5; }
+.idphoto__img img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .clip--photo { left: 26px; top: -34px; width: 34px; height: 88px; transform: rotate(3deg); }
 .about__name { font-size: 26px; font-weight: 600; letter-spacing: -.03em; color: var(--navy); }
 .about__role { margin-top: 4px; font-size: 15px; color: var(--muted); }
@@ -502,8 +501,13 @@ body.menu-open { overflow: hidden; }
 .badge:hover .badge__card { translate: 0 -6px; box-shadow: 0 50px 70px -30px rgba(0, 0, 0, .7); }
 .badge__top { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 34px 0 16px; margin: 0 -24px 22px; border-bottom: 1px dashed var(--line); font-size: 10.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--navy); }
 .badge__logo { width: 18px; height: 18px; color: var(--navy); }
-.badge__initials { display: grid; place-items: center; width: 76px; height: 76px; margin: 0 0 18px; border-radius: 50%; background: var(--paper); font-size: 28px; font-weight: 600; letter-spacing: -.04em; color: var(--navy); }
-.badge:nth-child(4n + 1) .badge__initials { background: #F1E6DC; }
+/* Місце під фото, як на справжньому пропуску: фото (ч/б, при наведенні — колір) або ініціали того ж розміру */
+.badge__photo { position: relative; width: 104px; aspect-ratio: 3 / 4; margin: 0 0 18px; border-radius: 8px; overflow: hidden; background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
+.badge__photo img { display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.06); transition: filter .6s var(--ease); }
+.badge:hover .badge__photo img { filter: none; }
+.badge__photo--initials { display: grid; place-items: center; background: var(--navy); }
+.badge__photo--initials b { font-size: 34px; font-weight: 600; letter-spacing: -.05em; color: var(--beige); }
+.badge__photo--initials svg { position: absolute; right: 7px; bottom: 7px; width: 16px; height: 16px; color: var(--white); opacity: .35; }
 .badge__name { font-size: 22px; line-height: 1.1; font-weight: 600; letter-spacing: -.03em; color: var(--navy); }
 .badge__role { margin-top: 6px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--orange-deep); }
 .badge__exp { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14.5px; line-height: 1.5; color: var(--muted); }
@@ -563,6 +567,8 @@ body.menu-open { overflow: hidden; }
 .clock svg { width: clamp(220px, 24vw, 340px); height: auto; flex: none; overflow: visible; }
 .clock__face { fill: var(--white); stroke: var(--ln); stroke-width: 1.5; transition: fill .9s var(--ease); }
 .day.is-evening .clock__face { fill: rgba(255, 255, 255, .04); }
+.clock__photo { opacity: 0; transition: opacity 1.1s var(--ease); }
+.day.is-evening .clock__photo { opacity: 1; }
 .clock__arc { fill: none; stroke: rgba(202, 174, 153, .35); stroke-width: 10; stroke-linecap: round; }
 .clock__arc--fill { stroke: var(--orange); stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--p, 0)); }
 .clock__ticks line { stroke: var(--fg); stroke-linecap: round; transition: stroke .9s var(--ease); }
@@ -603,6 +609,10 @@ body.menu-open { overflow: hidden; }
 .final__contacts a { background: linear-gradient(var(--orange), var(--orange)) 0 100% / 0 1.5px no-repeat; transition: background-size .35s var(--ease); }
 .final__contacts a:hover { background-size: 100% 1.5px; }
 
+.case-wrap { position: relative; padding-top: 268px; }
+.case__pin { position: absolute; top: 0; right: 24px; z-index: 3; width: 200px; margin: 0; padding: 9px 9px 30px; background: var(--white); box-shadow: var(--shadow-sheet); rotate: 4deg; }
+.case__pin img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+.clip--pin { left: 22px; top: -30px; width: 30px; height: 80px; transform: rotate(-6deg); }
 .case { display: flex; border-radius: 14px; overflow: hidden; background: var(--white); box-shadow: 0 50px 90px -40px rgba(16, 38, 98, .45); }
 .case__spine {
   flex: 0 0 92px;
@@ -791,8 +801,6 @@ body.menu-open { overflow: hidden; }
 
   .about__card { grid-template-columns: 112px 1fr; gap: 0 18px; margin: 28px 0 32px; }
   .idphoto { padding: 7px 7px 22px; margin: 18px 0 0 4px; }
-  .idphoto__img b { font-size: 40px; }
-  .idphoto__img svg { width: 18px; height: 18px; right: 6px; bottom: 6px; }
   .clip--photo { left: 12px; width: 22px; height: 56px; top: -22px; }
   .about__name { font-size: 21px; margin-top: 0; align-self: end; }
   .about__role { font-size: 14px; }
@@ -817,7 +825,7 @@ body.menu-open { overflow: hidden; }
   .badge__strap { height: 64px; width: 22px; }
   .badge__card { max-width: none; padding: 0 20px 22px; }
   .badge__top { margin: 0 -20px 18px; }
-  .badge__initials { width: 64px; height: 64px; font-size: 24px; }
+  .badge__photo { width: 92px; }
   .badge__name { font-size: 20px; }
   .clients__stat b { font-size: 56px; }
   .clients__stat p { font-size: 15px; }
@@ -852,6 +860,10 @@ body.menu-open { overflow: hidden; }
   .final__contacts a, .final__contacts p { font-size: 16.5px; }
   .final__contacts li { padding: 15px 0; }
   .case { flex-direction: column; margin-top: 8px; }
+  .case-wrap { padding-top: 168px; }
+  .case__pin { width: 128px; right: 14px; padding: 7px 7px 22px; }
+  .clip--pin { left: 14px; top: -24px; width: 24px; height: 62px; }
+  .case__spine i { display: none; }
   .case__spine { flex: none; flex-direction: row; justify-content: flex-start; gap: 14px; padding: 0 20px; height: 56px; }
   .case__spine b, .case__spine i { writing-mode: horizontal-tb; transform: none; }
   .case__spine b { font-size: 16.5px; }

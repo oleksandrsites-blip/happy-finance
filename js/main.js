@@ -27,9 +27,29 @@ function countFacts() {
     requestAnimationFrame(tick);
   });
 }
-(document.fonts ? Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 900))]) : Promise.resolve())
-  .then(startHero);
-setTimeout(startHero, 1500); // запасний варіант, якщо шрифт вантажиться надто довго
+const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+const fontsReady = document.fonts ? Promise.race([document.fonts.ready, wait(900)]) : Promise.resolve();
+const preloader = document.querySelector('.preloader');
+
+// Прелоадер: тримаємо, доки домалюється монограма (≈1.3 с) і завантажиться шрифт,
+// потім аркуш піднімається, а під ним уже стартує поява першого екрана.
+const hidePreloader = () => {
+  if (!preloader || !preloader.isConnected) return;
+  preloader.classList.add('is-out');
+  setTimeout(startHero, 280);
+  setTimeout(() => {
+    preloader.remove();
+    document.documentElement.classList.remove('is-pre');
+  }, 900);
+};
+if (document.documentElement.classList.contains('is-pre') && preloader) {
+  Promise.all([fontsReady, wait(1300)]).then(hidePreloader);
+  setTimeout(hidePreloader, 3500); // запасний варіант
+} else {
+  preloader?.remove();
+  fontsReady.then(startHero);
+}
+setTimeout(startHero, 4000); // запасний варіант, якщо шрифт вантажиться надто довго
 
 // Контакти Марії Панченко (надіслав Дмитро 27.10).
 const CONTACTS = {

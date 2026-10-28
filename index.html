@@ -11,12 +11,38 @@
   <meta property="og:title" content="Happy Finance — тримаємо ваш бізнес у порядку">
   <meta property="og:description" content="Бухгалтерський, податковий і управлінський облік для ФОП і ТОВ.">
   <link rel="icon" href="assets/brand/logo-mark.svg" type="image/svg+xml">
+  <script>
+    /* Прелоадер показуємо лише при першому відкритті сайту за сесію */
+    (function (h) {
+      h.classList.add('js');
+      try {
+        if (!sessionStorage.getItem('hf-pre') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          h.classList.add('is-pre');
+          sessionStorage.setItem('hf-pre', '1');
+        }
+      } catch (e) {}
+    })(document.documentElement);
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20">
+  <link rel="stylesheet" href="css/style.css?v=22">
 </head>
 <body>
+
+<!-- Прелоадер: монограма-скріпка малюється лініями, потім екран піднімається, як аркуш -->
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <svg class="preloader__mark" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+      <rect pathLength="1" x="8" y="8" width="84" height="84"/>
+      <rect pathLength="1" x="27" y="25" width="12.5" height="54" rx="6.25"/>
+      <rect pathLength="1" x="60.5" y="25" width="12.5" height="54" rx="6.25"/>
+      <path class="preloader__arc" pathLength="1" d="M39.5 63C39.5 41 60.5 40 60.5 56"/>
+    </svg>
+    <p class="preloader__name"><span>Happy</span> <span>Finance</span></p>
+    <p class="preloader__tag">фінансово-бухгалтерський супровід</p>
+  </div>
+</div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs><path id="stamp-circle" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs>
@@ -598,6 +624,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=21" defer></script>
+<script src="js/main.js?v=22" defer></script>
 </body>
 </html>

@@ -92,6 +92,38 @@ fieldset { border: 0; min-width: 0; }
 .btn__arrow { width: 20px; height: 20px; transition: transform .3s var(--ease); }
 .btn:hover .btn__arrow { transform: translateX(4px); }
 
+/* ---------- Прелоадер ---------- */
+.preloader { display: none; }
+.is-pre body { overflow: hidden; }
+.is-pre .preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(rgba(16, 38, 98, .055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 38, 98, .055) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: center top;
+  box-shadow: 0 30px 60px -10px rgba(16, 38, 98, .35);
+}
+.preloader__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.preloader__mark { width: 104px; height: 104px; color: var(--navy); overflow: visible; }
+.preloader__mark > * { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw .7s var(--ease) forwards; }
+.preloader__mark rect:nth-child(2) { animation-delay: .22s; }
+.preloader__mark rect:nth-child(3) { animation-delay: .36s; }
+.preloader__arc { stroke: var(--orange); stroke-width: 3; animation-delay: .62s !important; }
+.preloader__name { margin-top: 26px; font-size: 15px; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; color: var(--navy); }
+.preloader__name span { display: inline-block; opacity: 0; animation: rise .6s var(--ease) .7s both; }
+.preloader__name span + span { animation-delay: .8s; }
+.preloader__tag { margin-top: 8px; font-size: 13px; color: var(--muted); opacity: 0; animation: rise .6s var(--ease) .92s both; }
+.preloader.is-out { animation: pre-out .85s cubic-bezier(.76, 0, .24, 1) forwards; }
+.preloader.is-out .preloader__inner { animation: pre-inner .5s cubic-bezier(.5, 0, .75, 0) forwards; }
+@keyframes pre-out { to { translate: 0 -105%; } }
+@keyframes pre-inner { to { opacity: 0; translate: 0 -40px; } }
+
 /* ---------- Лого і шапка ---------- */
 .logo { display: inline-flex; align-items: center; gap: 12px; color: var(--navy); }
 .logo__mark { width: 40px; height: 40px; flex: none; }

@@ -139,8 +139,8 @@ if (badgeEls.length && !reduced && window.matchMedia('(hover: hover) and (pointe
     last = now;
     let moving = false;
     state.forEach((st, i) => {
-      st.v += (-55 * st.a - 2.6 * st.v) * dt; // пружина + загасання
-      st.a = clamp(st.a + st.v * dt, -12, 12);
+      st.v += (-55 * st.a - 3.4 * st.v) * dt; // пружина + загасання
+      st.a = clamp(st.a + st.v * dt, -7, 7);
       if (Math.abs(st.a) > 0.02 || Math.abs(st.v) > 0.05) moving = true;
       else { st.a = 0; st.v = 0; }
       badgeEls[i].style.setProperty('--swing', `${st.a.toFixed(2)}deg`);
@@ -156,7 +156,7 @@ if (badgeEls.length && !reduced && window.matchMedia('(hover: hover) and (pointe
       const i = badgeEls.indexOf(e.target.closest('.badge'));
       if (i > -1) {
         // Рух вправо штовхає низ бейджа вправо, тобто поворот проти годинникової.
-        state[i].v -= vx * 16;
+        state[i].v -= vx * 9;
         if (!running) { running = true; last = now; requestAnimationFrame(step); }
       }
     }

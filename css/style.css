@@ -668,7 +668,6 @@ body.menu-open { overflow: hidden; }
   height: 470px;
   padding: 24px 22px;
   overflow-y: auto;
-  overscroll-behavior: contain;
   background-color: var(--paper);
   background-image:
     linear-gradient(rgba(16, 38, 98, .045) 1px, transparent 1px),

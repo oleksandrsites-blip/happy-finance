@@ -815,6 +815,17 @@ body.menu-open { overflow: hidden; }
   .faq__inner > * { min-width: 0; }
   .faq__inner { gap: 28px; }
   .faq__head { position: static; }
+  /* Питання стають «швидкими відповідями» під чатом, як у месенджері */
+  .faq__head { display: contents; }
+  .faq__inner { gap: 0; }
+  .faq__lead { margin: 14px 0 24px; }
+  .chat { order: 3; border-radius: 24px 24px 0 0; box-shadow: inset 0 0 0 1px var(--line); }
+  .faq__chips { order: 4; flex-direction: row; flex-wrap: wrap; gap: 8px; padding: 14px 14px 16px; border-radius: 0 0 24px 24px; background: var(--white); box-shadow: inset 0 0 0 1px var(--line), 0 40px 60px -40px rgba(16, 38, 98, .35); }
+  .faq__chips::before { content: "Оберіть питання"; width: 100%; margin-bottom: 2px; font-size: 11.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .faq__chip { padding: 10px 14px; border-radius: 100px; font-size: 14px; line-height: 1.3; }
+  .faq__chip:hover, .faq__chip.is-active { translate: none; }
+  .faq__chip.is-asked:not(.is-active) { background: var(--white); }
+  .faq__chip.is-asked:not(.is-active)::before { content: "✓ "; color: var(--orange-deep); }
   .team__head { grid-template-columns: 1fr; }
   .badges { grid-template-columns: repeat(2, 1fr); gap: 0 24px; }
   .badge:nth-child(even) { padding-top: 34px; }
@@ -828,9 +839,18 @@ body.menu-open { overflow: hidden; }
   /* Годинник: без «липкого» скролу — на планшетах і телефонах контент вищий за екран */
   .day__track { height: auto; }
   .day__sticky { position: static; height: auto; min-height: 0; padding: var(--section) 0; }
-  .day__inner { grid-template-columns: 1fr; gap: 40px; }
+  .day__inner { grid-template-columns: 1fr; gap: 0; }
   .rule { opacity: .5; }
   .rule.is-now { opacity: 1; }
+  /* Годинник — компактна липка плашка під шапкою: видно, як іде час, поки гортаєш правила */
+  .day__left { display: contents; }
+  .day__lead { margin: 18px 0 24px; }
+  .clock { position: sticky; top: 96px; z-index: 4; gap: 18px; padding: 12px 18px; border-radius: 18px; background: var(--white); color: var(--fg); box-shadow: inset 0 0 0 1px var(--line), 0 16px 30px -20px rgba(16, 38, 98, .45); transition: background .7s var(--ease), color .7s var(--ease); }
+  .clock svg { width: 84px; }
+  .day__rules { margin-top: 32px; }
+  /* «Вечір» на планшеті й телефоні настає лише в плашці годинника, а не на всьому блоці */
+  .day.is-evening { --bg: var(--paper); --fg: var(--navy); --sub: var(--muted); --ln: var(--line); }
+  .day.is-evening .clock { --fg: var(--white); --sub: rgba(255, 255, 255, .7); --ln: rgba(255, 255, 255, .2); --bg: #0E1630; background: #0E1630; }
 }
 
 @media (max-width: 760px) {
@@ -948,20 +968,18 @@ body.menu-open { overflow: hidden; }
   .spine__what { font-size: 15.5px; padding-top: 14px; }
 
   .day__lead { font-size: 16.5px; margin-bottom: 28px; }
-  .clock svg { width: 128px; }
-  .clock__digital span { font-size: 44px; }
-  .clock__digital small { font-size: 13px; }
+  .clock { top: 76px; padding: 10px 14px; gap: 14px; }
+  .clock svg { width: 64px; }
+  .clock__digital span { font-size: 32px; }
+  .clock__digital small { font-size: 12.5px; max-width: none; }
   .rule { padding-left: 26px; padding-bottom: 26px; }
   .rule h3 { font-size: 21px; }
   .rule p:not(.rule__time) { font-size: 15.5px; }
   .rule__now { font-size: 13px !important; }
 
   .faq__lead { font-size: 16.5px; margin: 14px 0 20px; }
-  .faq__chips { flex-direction: row; flex-wrap: nowrap; overflow-x: auto; margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter) 6px; scrollbar-width: none; }
-  .faq__chips::-webkit-scrollbar { display: none; }
-  .faq__chip { flex: none; max-width: 78vw; font-size: 14.5px; padding: 12px 16px; }
-  .faq__chip:hover, .faq__chip.is-active { translate: none; }
-  .chat__body { height: 400px; padding: 18px 14px; }
+  .faq__chip { font-size: 13.5px; padding: 9px 13px; }
+  .chat__body { height: 360px; padding: 18px 14px; }
   .msg { max-width: 90%; font-size: 15px; }
   .case__clock { width: 26px; height: 26px; }
   .services__cta { padding: 20px; margin-top: 28px; }
@@ -998,8 +1016,8 @@ body.menu-open { overflow: hidden; }
   .hero__title { font-size: 38px; }
   .hero__facts b { font-size: 20px; }
   .folder__tab { font-size: 12.5px; }
-  .clock svg { width: 108px; }
-  .clock__digital span { font-size: 38px; }
+  .clock svg { width: 56px; }
+  .clock__digital span { font-size: 28px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

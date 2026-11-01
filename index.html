@@ -583,7 +583,7 @@
               <input type="hidden" name="form-name" value="lead">
               <p hidden><label>Не заповнюйте: <input name="company"></label></p>
               <label class="line-field"><span>Ваше ім’я</span><input name="name" required autocomplete="given-name"></label>
-              <label class="line-field"><span>Телефон</span><input name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+380"></label>
+              <label class="line-field"><span>Телефон</span><input name="phone" type="tel" required autocomplete="tel" inputmode="numeric" placeholder="+38 (0__) ___ __ __" maxlength="19" pattern="\+38 \(0\d{2}\) \d{3} \d{2} \d{2}" data-phone></label>
               <fieldset class="lead__msg">
                 <legend>Як зручніше зв’язатися?</legend>
                 <label><input type="radio" name="messenger" value="Дзвінок" checked><span>Дзвінок</span></label>
@@ -655,7 +655,7 @@
       <input type="hidden" name="form-name" value="lead">
       <p hidden><label>Не заповнюйте: <input name="company"></label></p>
       <label class="field"><span>Ваше ім’я</span><input name="name" required autocomplete="given-name" autofocus></label>
-      <label class="field"><span>Телефон</span><input name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="+380"></label>
+      <label class="field"><span>Телефон</span><input name="phone" type="tel" required autocomplete="tel" inputmode="numeric" placeholder="+38 (0__) ___ __ __" maxlength="19" pattern="\+38 \(0\d{2}\) \d{3} \d{2} \d{2}" data-phone></label>
       <fieldset class="lead__msg">
         <legend>Як зручніше зв’язатися?</legend>
         <label><input type="radio" name="messenger" value="Дзвінок" checked><span>Дзвінок</span></label>
@@ -682,6 +682,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=23" defer></script>
+<script src="js/main.js?v=24" defer></script>
 </body>
 </html>

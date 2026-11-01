@@ -98,6 +98,41 @@ document.querySelectorAll('[data-lead-box]').forEach((box) => {
   });
 });
 
+/* ---------- Маска українського телефону: +38 (0XX) XXX XX XX ---------- */
+// Лишаємо лише цифри номера (10 штук, починаючи з 0) і самі розставляємо пробіли й дужки.
+// Вставлений «+380671234567», «380…» чи «067…» приводиться до одного вигляду.
+const phoneDigits = (value) => {
+  let d = value.replace(/\D/g, '');
+  if (d.startsWith('380')) d = d.slice(2);
+  else if (d.startsWith('38')) d = d.slice(2);
+  if (d && d[0] !== '0') d = `0${d}`;
+  return d.slice(0, 10);
+};
+const formatPhone = (d) => {
+  if (!d) return '';
+  let out = `+38 (${d.slice(0, 3)}`;
+  if (d.length >= 3) out += `) ${d.slice(3, 6)}`;
+  if (d.length >= 6) out += ` ${d.slice(6, 8)}`;
+  if (d.length >= 8) out += ` ${d.slice(8, 10)}`;
+  return out;
+};
+document.querySelectorAll('[data-phone]').forEach((input) => {
+  let prev = '';
+  input.addEventListener('focus', () => { if (!input.value) input.value = '+38 (0'; prev = '0'; });
+  input.addEventListener('blur', () => { if (phoneDigits(input.value).length <= 1) input.value = ''; });
+  input.addEventListener('input', (e) => {
+    let d = phoneDigits(input.value);
+    // Стерли дужку чи пробіл — стираємо й цифру перед ними, інакше курсор «застрягає».
+    if (e.inputType === 'deleteContentBackward' && d === prev) d = d.slice(0, -1);
+    input.value = d ? formatPhone(d) : '';
+    prev = d;
+    input.setCustomValidity('');
+  });
+  input.addEventListener('invalid', () => {
+    input.setCustomValidity('Введіть номер повністю: +38 (0XX) XXX XX XX');
+  });
+});
+
 /* ---------- Мобільне меню ---------- */
 const burger = document.querySelector('[data-burger]');
 const setMenu = (open) => {

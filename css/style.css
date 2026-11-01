@@ -783,6 +783,17 @@ body.menu-open { overflow: hidden; }
 .lead__done { text-align: center; padding: 12px 0 8px; }
 .stamp--done { position: relative; right: auto; bottom: auto; margin: 70px auto 22px; width: 116px; height: 116px; }
 
+/* ---------- Конверсійні дрібниці: телефон у шапці, дія після послуг, довіра біля форми, згода ---------- */
+.header__phone { font-size: 15px; font-weight: 600; color: var(--navy); white-space: nowrap; margin-right: -12px; }
+.header__phone:hover { color: var(--orange-deep); }
+.services__cta { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 20px 40px; flex-wrap: wrap; margin-top: 40px; padding: 26px 30px; border-radius: 18px; border: 1px solid rgba(255, 255, 255, .16); }
+.services__cta p { max-width: 640px; font-size: 17px; color: rgba(255, 255, 255, .72); }
+.services__cta b { color: var(--white); font-weight: 500; }
+.final__proof { display: flex; flex-wrap: wrap; gap: 8px; margin: -12px 0 32px; }
+.final__proof li { padding: 8px 14px; border-radius: 100px; background: var(--white); box-shadow: inset 0 0 0 1px var(--line); font-size: 14px; color: var(--muted); }
+.final__proof b { color: var(--navy); font-weight: 600; }
+.lead__consent { margin-top: 4px; text-align: center; font-size: 12px; line-height: 1.45; color: var(--muted); opacity: .85; }
+
 /* ---------- Адаптив ---------- */
 /* Невисокі ноутбуки: перший екран має вміститися у вікно */
 @media (min-width: 1081px) and (max-height: 820px) {
@@ -799,6 +810,7 @@ body.menu-open { overflow: hidden; }
 
 @media (max-width: 1080px) {
   .hero__inner { grid-template-columns: 1fr; }
+  .header__phone { display: none; }
   .stack { width: min(400px, 80%); margin: 40px auto 0; }
   .pains__inner { grid-template-columns: 1fr; }
   .pains__head { position: static; }
@@ -956,6 +968,11 @@ body.menu-open { overflow: hidden; }
   .chat__body { height: 400px; padding: 18px 14px; }
   .msg { max-width: 90%; font-size: 15px; }
   .case__clock { width: 26px; height: 26px; }
+  .services__cta { padding: 20px; margin-top: 28px; }
+  .services__cta p { font-size: 15.5px; }
+  .services__cta .btn { width: 100%; }
+  .final__proof { margin: -6px 0 24px; }
+  .final__proof li { font-size: 13px; padding: 7px 12px; }
   .final__lead { font-size: 16.5px; margin: 18px 0 28px; }
   .final__contacts a, .final__contacts p { font-size: 16.5px; }
   .final__contacts li { padding: 15px 0; }

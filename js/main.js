@@ -195,19 +195,68 @@ spines.forEach((spine) => spine.querySelector('.spine__btn').addEventListener('c
 }));
 
 /* ---------- Цінності: чи працюємо ми зараз (київський час, пн–пт до 17:00) ---------- */
-const nowEl = document.querySelector('[data-now]');
-if (nowEl) {
+// Київський час і чи працюємо зараз (пн–пт, 9:00–17:00).
+function kyivNow() {
   const parts = Object.fromEntries(new Intl.DateTimeFormat('uk-UA', {
     timeZone: 'Europe/Kyiv', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
   }).formatToParts(new Date()).map((p) => [p.type, p.value]));
-  const hour = +parts.hour;
   const weekend = ['сб', 'нд'].includes(parts.weekday.replace('.', ''));
-  const working = !weekend && hour >= 9 && hour < 17;
-  nowEl.textContent = working
-    ? `${parts.hour}:${parts.minute} у Києві — ми на зв’язку`
-    : `${parts.hour}:${parts.minute} у Києві — ми відпочиваємо, відповімо в робочий час`;
-  nowEl.classList.toggle('is-off', !working);
+  return { time: `${parts.hour}:${parts.minute}`, working: !weekend && +parts.hour >= 9 && +parts.hour < 17 };
+}
+const now = kyivNow();
+
+const nowEl = document.querySelector('[data-now]');
+if (nowEl) {
+  nowEl.textContent = now.working
+    ? `${now.time} у Києві — ми на зв’язку`
+    : `${now.time} у Києві — ми відпочиваємо, відповімо в робочий час`;
+  nowEl.classList.toggle('is-off', !now.working);
   nowEl.hidden = false;
+}
+
+/* ---------- Часті питання: чат з Марією ---------- */
+// Натиснули питання — воно «надсилається», Марія «друкує» і відповідає. Перше питання програється само, коли блок на екрані.
+const faq = document.querySelector('[data-faq]');
+let faqAsk = null;
+let faqAutoDone = false;
+if (faq) {
+  const chatBody = faq.querySelector('[data-chat-body]');
+  const chips = [...faq.querySelectorAll('.faq__chip')];
+  const answers = [...faq.querySelectorAll('.faq__src dd')].map((dd) => dd.textContent);
+  const status = faq.querySelector('[data-chat-status]');
+  status.textContent = now.working ? 'на зв’язку до 17:00' : 'зараз відпочиває · відповість у робочий час';
+  status.classList.toggle('is-off', !now.working);
+  let busy = false;
+
+  const toBottom = () => chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: reduced ? 'auto' : 'smooth' });
+  const add = (cls, text) => {
+    const p = document.createElement('p');
+    p.className = `msg ${cls}`;
+    p.textContent = text;
+    chatBody.append(p);
+    toBottom();
+    return p;
+  };
+
+  faqAsk = (i) => {
+    if (busy) return;
+    busy = true;
+    faqAutoDone = true;
+    chips.forEach((c, k) => c.classList.toggle('is-active', k === i));
+    chips[i].classList.add('is-asked');
+    add('msg--out', chips[i].textContent);
+    const typing = add('msg--in msg--typing', '');
+    typing.innerHTML = '<i></i><i></i><i></i>';
+    typing.setAttribute('aria-label', 'Марія друкує');
+    setTimeout(() => {
+      typing.classList.remove('msg--typing');
+      typing.removeAttribute('aria-label');
+      typing.textContent = answers[i];
+      toBottom();
+      busy = false;
+    }, reduced ? 0 : 700 + Math.min(answers[i].length * 3, 700));
+  };
+  chips.forEach((chip, i) => chip.addEventListener('click', () => faqAsk(i)));
 }
 
 /* ---------- Скрол: шапка, стос документів, «болі», мобільна кнопка ---------- */
@@ -256,6 +305,9 @@ function onScroll() {
     const p = clamp(window.scrollY / (hero.offsetHeight * 0.7));
     stack.style.setProperty('--s', p.toFixed(3));
   }
+
+  // Чат з Марією: перше питання ставиться саме, коли блок доходить до екрана.
+  if (faq && !faqAutoDone && faq.getBoundingClientRect().top < vh * 0.45) faqAsk(0);
 
   // Біль перекреслюється, коли рядок доходить до середини екрана.
   pains.forEach((li) => {

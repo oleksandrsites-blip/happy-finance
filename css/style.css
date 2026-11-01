@@ -353,14 +353,14 @@ body.menu-open { overflow: hidden; }
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 0;
-  max-height: 0;
+  /* Місце під рішення зарезервоване одразу — висота блоку не змінюється, наступні блоки не смикаються */
+  margin-top: 12px;
   opacity: 0;
-  overflow: hidden;
+  translate: 0 8px;
   font-size: 16px;
   font-weight: 500;
   color: #C63C0E;
-  transition: max-height .6s var(--ease) .35s, margin .6s var(--ease) .35s, opacity .5s ease .45s;
+  transition: opacity .5s ease .4s, translate .6s var(--ease) .35s;
 }
 .pains__fix::before {
   content: "";
@@ -371,7 +371,7 @@ body.menu-open { overflow: hidden; }
   background: var(--orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5.5 10.5 3 3L14.5 7'/%3E%3C/svg%3E") center / 14px no-repeat;
 }
 .pains__list li.is-done .pains__text { color: rgba(16, 38, 98, .38); background-size: 100% 3px; transition: color .6s var(--ease), background-size .7s var(--ease); }
-.pains__list li.is-done .pains__fix { max-height: 60px; margin-top: 12px; opacity: 1; }
+.pains__list li.is-done .pains__fix { opacity: 1; translate: 0 0; }
 
 /* ---------- Послуги: папка з документами ---------- */
 .services { position: relative; padding: var(--section) 0; background: var(--navy); color: var(--white); overflow: hidden; }

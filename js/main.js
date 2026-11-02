@@ -300,6 +300,7 @@ const stack = document.querySelector('[data-stack]');
 const hero = document.querySelector('.hero');
 const pains = [...document.querySelectorAll('[data-pains] li')];
 const heroCta = document.querySelector('.hero__cta');
+const acts = document.querySelector('[data-acts]');
 const day = document.querySelector('[data-day]');
 const dayTrack = day && day.querySelector('.day__track');
 const rules = day ? [...day.querySelectorAll('.rule')] : [];
@@ -339,6 +340,12 @@ function onScroll() {
   if (stack && !reduced && window.innerWidth > 760) {
     const p = clamp(window.scrollY / (hero.offsetHeight * 0.7));
     stack.style.setProperty('--s', p.toFixed(3));
+  }
+
+  // Кейси: штемпель ставить «Виконано» на кожен акт, коли блок доходить до екрана.
+  if (acts && !acts.dataset.done && acts.getBoundingClientRect().top < vh * 0.7) {
+    acts.dataset.done = '1';
+    acts.querySelectorAll('[data-stamp]').forEach((st) => st.classList.add('is-stamping'));
   }
 
   // Чат з Марією: перше питання ставиться саме, коли блок доходить до екрана.

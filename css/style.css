@@ -479,17 +479,16 @@ body.menu-open { overflow: hidden; }
 .book { background: var(--white); border-radius: 8px; box-shadow: var(--shadow-sheet); padding: 8px clamp(20px, 3vw, 36px); }
 .book__title { display: flex; justify-content: space-between; padding: 22px 0 6px; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--navy); }
 .book__title span { font-weight: 400; color: var(--muted); letter-spacing: .06em; }
-.book__row { display: grid; grid-template-columns: 82px 1fr 1.7fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.book__row { display: grid; grid-template-columns: 82px 1fr 1.7fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: center; }
 .book__row:last-child { border-bottom: 0; }
 .book__row span:first-child { font-size: 14px; font-weight: 600; color: var(--navy); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .book__row span:nth-child(2) { font-size: 15px; color: var(--navy); font-weight: 500; }
 .book__row span:nth-child(3) { font-size: 15px; color: var(--muted); }
 .book__row b { color: var(--text); font-weight: 600; }
-.book__row--head { padding: 16px 0 12px; border-bottom: 2px solid var(--navy); }
+.book__row--head { align-items: end; padding: 16px 0 12px; border-bottom: 2px solid var(--navy); }
 .book__row--head span, .book__row--head span:nth-child(n) { font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .book__row.is-now span:first-child { color: var(--orange-deep); font-weight: 600; }
 .book__row.is-now { position: relative; }
-.book__row.is-now { align-items: center; }
 .book__row.is-now::after { content: ""; position: absolute; left: -12px; top: 20px; bottom: 20px; width: 3px; border-radius: 3px; background: var(--orange); }
 
 

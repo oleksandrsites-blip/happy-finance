@@ -489,7 +489,8 @@ body.menu-open { overflow: hidden; }
 .book__row--head span, .book__row--head span:nth-child(n) { font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .book__row.is-now span:first-child { color: var(--orange-deep); font-weight: 600; }
 .book__row.is-now { position: relative; }
-.book__row.is-now::after { content: ""; position: absolute; left: -12px; top: 18px; bottom: 18px; width: 3px; border-radius: 3px; background: var(--orange); }
+.book__row.is-now { align-items: center; }
+.book__row.is-now::after { content: ""; position: absolute; left: -12px; top: 20px; bottom: 20px; width: 3px; border-radius: 3px; background: var(--orange); }
 
 
 /* ---------- Команда: бейджі на помаранчевих стрічках (як у брендбуку) ---------- */
@@ -1057,6 +1058,8 @@ body.menu-open { overflow: hidden; }
   .footer__brand { grid-column: 1 / -1; }
   .footer__bottom { flex-direction: column; gap: 6px; }
 
+  .lead__msg { display: grid; grid-template-columns: 1fr 1fr; }
+  .lead__msg span { width: 100%; justify-content: center; }
   .lead { padding: 30px 20px 22px; }
   .lead__title { font-size: 23px; }
 }

@@ -44,6 +44,11 @@ fieldset { border: 0; min-width: 0; }
 
 .container { width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 var(--gutter); }
 
+/* Lenis: плавна прокрутка керує скролом сама */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
 /* ---------- Загальне ---------- */
 .eyebrow {
   display: inline-flex;

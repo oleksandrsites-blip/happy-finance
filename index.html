@@ -26,7 +26,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=32">
+  <link rel="stylesheet" href="css/style.css?v=33">
 </head>
 <body>
 
@@ -587,7 +587,7 @@
           <div class="chat__who"><b>Марія Панченко</b><span data-chat-status>засновниця Happy Finance</span></div>
           <svg class="chat__mark" aria-hidden="true"><use href="#mark"/></svg>
         </header>
-        <div class="chat__body" data-chat-body aria-live="polite">
+        <div class="chat__body" data-lenis-prevent data-chat-body aria-live="polite">
           <p class="msg msg--in">Вітаю! Я Марія, засновниця Happy Finance. Оберіть питання — відповім.</p>
         </div>
       </div>
@@ -741,6 +741,7 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=25" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="js/main.js?v=26" defer></script>
 </body>
 </html>

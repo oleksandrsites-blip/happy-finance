@@ -36,6 +36,7 @@ const preloader = document.querySelector('.preloader');
 const hidePreloader = () => {
   if (!preloader || !preloader.isConnected) return;
   preloader.classList.add('is-out');
+  lenis?.start();
   setTimeout(startHero, 280);
   setTimeout(() => {
     preloader.remove();
@@ -63,14 +64,33 @@ const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- Заявка: модалка (кнопки [data-lead]) і форма у фінальному блоці ---------- */
 const lead = document.getElementById('lead');
+/* ---------- Плавна прокрутка (лише десктоп з мишею; на телефоні — рідний скрол) ---------- */
+let lenis = null;
+if (window.Lenis && !reduced && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  lenis = new Lenis({ lerp: 0.11, wheelMultiplier: 1 });
+  const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
+  if (document.documentElement.classList.contains('is-pre')) lenis.stop(); // поки йде прелоадер
+  requestAnimationFrame(raf);
+  // Якірні посилання меню — теж плавно, з відступом під шапку.
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || a.getAttribute('href').length < 2) return;
+    const target = document.querySelector(a.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    lenis.scrollTo(target, { offset: -84, duration: 1.2 });
+  });
+}
+
 const openLead = () => {
+  lenis?.stop();
   lead.showModal();
   document.body.classList.add('lead-open');
 };
 document.querySelectorAll('[data-lead]').forEach((btn) => btn.addEventListener('click', openLead));
 lead.querySelector('[data-close]').addEventListener('click', () => lead.close());
 lead.addEventListener('click', (e) => { if (e.target === lead) lead.close(); });
-lead.addEventListener('close', () => document.body.classList.remove('lead-open'));
+lead.addEventListener('close', () => { document.body.classList.remove('lead-open'); lenis?.start(); });
 
 document.querySelectorAll('[data-lead-box]').forEach((box) => {
   const form = box.querySelector('[data-form]');
